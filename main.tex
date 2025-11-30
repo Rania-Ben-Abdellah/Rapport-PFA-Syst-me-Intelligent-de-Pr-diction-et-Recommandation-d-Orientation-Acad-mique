@@ -1,0 +1,269 @@
+% !TeX TS-program = xelatex
+\documentclass[12pt,a4paper]{report}
+
+% ======= Polices & Langue (XeLaTeX) =======
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage[french]{babel}
+\setmainfont{Times New Roman}
+\setmonofont{Consolas}[Scale=MatchLowercase]
+
+% ======= Mise en page =======
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{microtype}
+
+% ======= Gestion des paragraphes =======
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{1.25cm}
+
+% ======= Outils graphiques =======
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% ======= Tableaux =======
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% ======= Légendes =======
+\usepackage{caption}
+\captionsetup{
+  font=small,
+  labelfont=bf
+}
+
+% ======= Math & symboles =======
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{changepage}
+\usepackage{rotating}
+
+% ======= Liens =======
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black,
+  pdfborder={0 0 0}
+}
+
+% ======= En-têtes & pieds de page =======
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ======= Figures & tables dans la TOC =======
+\usepackage{tocloft}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+
+% =========================
+%      DÉBUT DOCUMENT
+% =========================
+\begin{document}
+
+% ========= PAGE DE GARDE =========
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{center}
+
+        \vspace*{2cm}
+
+        % ========= ÉCOLE =========
+        {\Large \textbf{École Marocaine des Sciences de l'Ingénieur}}\\[0.3cm]
+        {\large \textbf{Filière : Ingénierie Informatique et Réseaux}}\\[0.2cm]
+        {\large Option : MIAGE}\\[1.5cm]
+
+        % ========= TYPE DE RAPPORT =========
+        {\large \textbf{Rapport de Projet de Fin d’Année}}\\[0.5cm]
+
+        % ========= TITRE DU PROJET =========
+        {\Huge \textbf{\textcolor{black}{Système Intelligent de Prédiction et Recommandation d’Orientation Académique}}}\\[1cm]
+
+        % ========= ÉTUDIANTS =========
+        \vspace{1.5cm}
+        \begin{flushleft}
+            {\large \textbf{Réalisé par :}}\\
+            {\large Charty Malak}\\
+            {\large Ben Abdellah Rania}\\[0.8cm]
+
+            {\large \textbf{Encadrement :}}\\
+            {\large Encadrant : Filali Mohanad}\\[0.8cm]
+        \end{flushleft}
+
+        \vfill
+
+        % ========= ANNÉE =========
+        {\large Année universitaire : 2025--2026}
+
+    \end{center}
+
+\end{titlepage}
+
+% ========= TABLE DES MATIÈRES =========
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+% ============================
+%      CHAPITRE I
+% ============================
+\chapter{Présentation du projet}
+
+% ============================
+%  Introduction
+% ============================
+\section{Introduction}
+
+L’orientation académique constitue une étape décisive dans le parcours d’un étudiant. Pourtant, ce choix est souvent effectué de manière subjective, influencé par des facteurs non mesurables ou par un manque d’informations fiables sur les filières et les compétences requises. Dans ce contexte, l’Intelligence Artificielle offre un moyen innovant de guider les étudiants vers des choix plus éclairés et adaptés à leur profil.
+
+Ce premier chapitre présente le contexte général du projet, sa problématique, les objectifs poursuivis ainsi que les user stories qui définissent les attentes fonctionnelles des différents acteurs impliqués.
+
+% ============================
+%  1.1 Contexte et sujet
+% ============================
+\section{Contexte et sujet du projet}
+
+Dans un contexte où les étudiants post-bac rencontrent des difficultés à choisir une filière adaptée à leurs compétences, leurs résultats scolaires et leurs préférences personnelles, les établissements cherchent à proposer des solutions d’orientation plus personnalisées.
+
+Ce projet vise à développer un système d’Intelligence Artificielle capable de prédire la filière académique la plus adaptée à un étudiant, en analysant ses données personnelles (notes, type de baccalauréat, centres d’intérêt, niveau de stress, etc.).
+
+L’application repose sur un modèle de Machine Learning entraîné sur un dataset représentatif, et met à disposition une interface web conçue avec \textbf{Streamlit}, permettant à l’étudiant ainsi qu’au conseiller d’orientation d’interagir facilement avec le système.
+
+% ============================
+%  1.2 Problématique
+% ============================
+\section{Problématique}
+
+La problématique principale du projet s’articule autour de la question suivante :
+
+\begin{quote}
+\textit{Comment proposer aux étudiants une recommandation d’orientation fiable, personnalisée et justifiable, basée sur une analyse intelligente de leurs données personnelles et scolaires ?}
+\end{quote}
+
+Cette problématique met en évidence plusieurs limites observées dans les systèmes d’orientation traditionnels :
+
+\begin{itemize}
+    \item Absence d’un outil automatisé et objectif d’aide à la décision.
+    \item Manque de prise en compte des compétences non scolaires (stress, communication, créativité, motivation, etc.).
+    \item Difficulté pour les étudiants à interpréter leurs performances ou à identifier clairement leurs points forts.
+    \item Charge importante pour les conseillers d’orientation qui doivent analyser de grands volumes d’informations hétérogènes.
+\end{itemize}
+
+L’Intelligence Artificielle permet de répondre à ces défis en offrant un système prédictif plus précis, explicable et accessible via une interface web dédiée.
+
+% ============================
+%  1.3 Objectifs
+% ============================
+\section{Objectifs du projet}
+
+\subsection*{Objectif général}
+L’objectif principal de ce projet est de développer un système d’aide à l’orientation permettant de recommander une filière d’études adaptée à un étudiant, en se basant sur un ensemble de données personnelles, scolaires et comportementales.
+
+\subsection*{Objectifs spécifiques}
+
+Pour atteindre cet objectif général, plusieurs objectifs spécifiques ont été définis :
+
+\begin{itemize}
+    \item Concevoir un dataset contenant les informations pertinentes (notes, type de baccalauréat, heures d’étude, niveau de stress, centres d’intérêt, etc.).
+    \item Entraîner un modèle d’apprentissage automatique performant et fiable.
+    \item Fournir à l’utilisateur une interface web simple et intuitive, développée avec \textbf{Streamlit}, pour interagir avec le système.
+    \item Générer un rapport PDF intégrant les résultats, les explications de la prédiction et les recommandations proposées.
+    \item Permettre au conseiller d’orientation de consulter les tendances globales ainsi que les résultats individuels des étudiants.
+    \item Offrir à l’administrateur IA un accès spécifique pour gérer le dataset, contrôler la qualité des données et entraîner à nouveau le modèle.
+\end{itemize}
+
+% ============================
+%  1.4 User stories
+% ============================
+\section{User Stories}
+
+Les user stories décrivent les besoins exprimés par les différents acteurs du système et permettent de définir les fonctionnalités attendues de manière simple et centrée utilisateur.
+
+\subsection{Acteur : Étudiant}
+
+\begin{itemize}
+    \item \textbf{US1} : En tant qu’étudiant, je veux saisir mes informations pour obtenir une orientation personnalisée.
+    \item \textbf{US2} : Je veux voir plusieurs filières proposées avec un pourcentage de compatibilité.
+    \item \textbf{US3} : Je veux visualiser mes points forts (logique, communication, créativité, etc.).
+    \item \textbf{US4} : Je veux comprendre les critères ayant influencé ma prédiction.
+\end{itemize}
+
+\subsection{Acteur : Conseiller d’orientation}
+
+\begin{itemize}
+    \item \textbf{US5} : Consulter les orientations générées par l’IA.
+    \item \textbf{US6} : Filtrer les étudiants selon leur profil ou leur orientation.
+    \item \textbf{US7} : Consulter les tendances globales des orientations.
+\end{itemize}
+
+\subsection{Acteur : Administrateur IA}
+
+\begin{itemize}
+    \item \textbf{US8} : Importer ou mettre à jour le dataset.
+    \item \textbf{US9} : Entraîner plusieurs modèles et comparer les performances.
+    \item \textbf{US10} : Sauvegarder le meilleur modèle et les métriques associées.
+    \item \textbf{US11} : Réentraîner le modèle en cas de mise à jour du dataset.
+\end{itemize}
+
+\subsection{Acteur : Utilisateur Web}
+
+\begin{itemize}
+    \item \textbf{US12} : Accéder à une interface simple via Streamlit.
+    \item \textbf{US13} : Soumettre mes données et obtenir une prédiction immédiate.
+    \item \textbf{US14} : Visualiser les résultats sous forme de graphiques.
+    \item \textbf{US15} : Télécharger un rapport PDF contenant l'analyse complète.
+\end{itemize}
+
+% ================================
+%     1.5 Périmètre fonctionnel
+% ================================
+\section{Périmètre fonctionnel du projet}
+
+\subsection*{Fonctionnalités incluses}
+
+\begin{itemize}
+    \item Formulaire complet de collecte des données étudiantes.
+    \item Prédiction IA de la filière académique.
+    \item Indicateurs psychométriques : logique, créativité, communication, motivation, etc.
+    \item Génération automatique d’un rapport PDF détaillé.
+    \item Espace conseiller : consultation des résultats avec filtres.
+    \item Espace administrateur IA : gestion du dataset et entraînement du modèle.
+\end{itemize}
+
+\subsection*{Fonctionnalités exclues}
+
+\begin{itemize}
+    \item Application mobile (non prévue dans cette version).
+    \item Système d'authentification avancé multi-rôle.
+    \item API REST complète (non nécessaire dans la version Streamlit).
+    \item Notifications automatiques (e-mail, SMS).
+\end{itemize}
+
+% ================================
+%       Conclusion du chapitre
+% ================================
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+
+Ce premier chapitre a présenté le cadre général du projet, la problématique à résoudre ainsi que les objectifs fonctionnels et techniques.  
+Il a également exposé les user stories représentant les attentes des différents acteurs impliqués.
+
+Ces éléments permettent de comprendre l’intérêt du système proposé et constituent la base nécessaire pour aborder le chapitre suivant consacré à l’analyse et à la conception du système.
+
+Le Chapitre~2 détaillera les besoins fonctionnels et non fonctionnels, et introduira les différents diagrammes UML permettant de modéliser le fonctionnement de l’application.
+
+% =========================
+%      FIN DOCUMENT
+% =========================
+\end{document}
+
