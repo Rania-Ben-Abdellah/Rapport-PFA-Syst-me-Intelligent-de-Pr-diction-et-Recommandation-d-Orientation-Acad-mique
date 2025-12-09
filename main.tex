@@ -24,6 +24,8 @@
 % ======= Outils graphiques =======
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 % ======= Tableaux =======
 \usepackage{longtable}
@@ -63,6 +65,40 @@
 \usepackage{tocloft}
 \renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftchappagefont}{\bfseries}
+% ======= Petite règle horizontale pour la page de garde =======
+\newcommand{\ThinRule}{%
+  \noindent\color{black!30}\rule{\textwidth}{0.4pt}
+}
+
+% ======= Bandeau de chapitre (TikZ) =======
+\newcommand{\ChapterCover}[1]{%
+  \refstepcounter{chapter}%
+  \newpage
+  \thispagestyle{fancy}
+  \null
+  \begin{tikzpicture}[remember picture,overlay]
+    \def\bannerwidth{0.82\textwidth}
+    \def\pad{16pt}
+    \def\gap{0.25cm}
+    \def\ll{3.2cm}
+    \node (banner) at (current page.center) {%
+      \colorbox{black!15}{%
+        \parbox{\bannerwidth}{\centering
+          \vspace{\pad}
+          \textbf{\large CHAPITRE \Roman{chapter} :}\\[6pt]
+          \normalsize #1
+          \vspace{\pad}
+        }%
+      }%
+    };
+    \draw[line width=1pt] ($ (banner.north west) + (-\gap,-0.15cm) $) -- ++(-\ll,0);
+    \draw[line width=1pt] ($ (banner.south east) + (\gap,0.15cm) $) -- ++(\ll,0);
+  \end{tikzpicture}
+  \vfill
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Chapitre \Roman{chapter} — #1}
+  \clearpage
+}
 
 % =========================
 %      DÉBUT DOCUMENT
@@ -71,40 +107,65 @@
 
 % ========= PAGE DE GARDE =========
 \begin{titlepage}
-    \thispagestyle{empty}
+  \thispagestyle{empty}
 
-    \begin{center}
+  % Bordure grise autour de la page (comme avant)
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.5pt, color=black!20]
+      ([xshift=1.0cm,yshift=-1.0cm]current page.north west)
+      rectangle
+      ([xshift=-1.0cm,yshift=1.0cm]current page.south east);
+  \end{tikzpicture}
 
-        \vspace*{2cm}
+  % Logo EMSI en haut à droite
+  \begin{flushright}
+    \includegraphics[height=2.0cm]{images/emsi.png}
+  \end{flushright}
 
-        % ========= ÉCOLE =========
-        {\Large \textbf{École Marocaine des Sciences de l'Ingénieur}}\\[0.3cm]
-        {\large \textbf{Filière : Ingénierie Informatique et Réseaux}}\\[0.2cm]
-        {\large Option : MIAGE}\\[1.5cm]
+  \vspace*{0.5cm}
 
-        % ========= TYPE DE RAPPORT =========
-        {\large \textbf{Rapport de Projet de Fin d’Année}}\\[0.5cm]
+  % Titre principal
+  \begin{center}
+    {\Large\bfseries RAPPORT DE PROJET DE FIN D’ANNÉE}\\[0.6cm]
+    {\normalsize\itshape 4\textsuperscript{ème} Année en Ingénierie Informatique et Réseaux}\\[-0.2em]
+    {\normalsize\itshape Option MIAGE}
+    \\[1.2cm]
 
-        % ========= TITRE DU PROJET =========
-        {\Huge \textbf{\textcolor{black}{Système Intelligent de Prédiction et Recommandation d’Orientation Académique}}}\\[1cm]
+    % Bandeau du titre du projet
+    \fboxsep=10pt
+    \colorbox{black!8}{%
+      \parbox[c]{0.78\textwidth}{\centering
+        \vspace{4pt}
+        {\Large\bfseries Système Intelligent de Prédiction et Recommandation\\[0.1cm]
+        d’Orientation Académique}\\[-2pt]
+        \vspace{4pt}
+      }%
+    }
+  \end{center}
 
-        % ========= ÉTUDIANTS =========
-        \vspace{1.5cm}
-        \begin{flushleft}
-            {\large \textbf{Réalisé par :}}\\
-            {\large Charty Malak}\\
-            {\large Ben Abdellah Rania}\\[0.8cm]
+  \vspace{1.4cm}
+  % Ligne horizontale simple (noire)
+  {\color{black}\ThinRule}
+  \vspace{0.8cm}
 
-            {\large \textbf{Encadrement :}}\\
-            {\large Encadrant : Filali Mohanad}\\[0.8cm]
-        \end{flushleft}
+  % Bloc infos en 2 colonnes (texte noir)
+  \renewcommand{\arraystretch}{2.0}
+  \setlength{\tabcolsep}{8pt}
+  \begin{center}
+  \begin{tabular}{p{0.35\textwidth} p{0.6\textwidth}}
+    \textbf{Réalisé par} &
+      \textsc{Charty Malak}\\
+      & \textsc{Ben Abdellah Rania} \\[0.2cm]
 
-        \vfill
+    \textbf{Encadrant} &
+      \textsc{Filali Mohanad} \\[0.2cm]
 
-        % ========= ANNÉE =========
-        {\large Année universitaire : 2025--2026}
+    \textbf{Année universitaire} &
+      2025/2026 \\
+  \end{tabular}
+  \end{center}
 
-    \end{center}
+  \vfill
 
 \end{titlepage}
 
@@ -117,7 +178,7 @@
 % ============================
 %      CHAPITRE I
 % ============================
-\chapter{Présentation du projet}
+\ChapterCover{Présentation du projet}
 
 % ============================
 %  Introduction
@@ -262,8 +323,316 @@ Ces éléments permettent de comprendre l’intérêt du système proposé et co
 
 Le Chapitre~2 détaillera les besoins fonctionnels et non fonctionnels, et introduira les différents diagrammes UML permettant de modéliser le fonctionnement de l’application.
 
+% ============================
+%      CHAPITRE II
+% ============================
+\ChapterCover{Méthodologie de travail}
+\section*{Introduction}
+
+Ce chapitre présente la méthodologie de travail adoptée pour la réalisation du projet de prédiction d’orientation étudiante. Dans un contexte où les besoins peuvent évoluer rapidement et où les modèles d’Intelligence Artificielle nécessitent des ajustements réguliers, il est indispensable de s'appuyer sur une approche flexible et itérative.  
+
+Nous avons ainsi choisi la méthodologie Agile, appuyée par le cadre Scrum, afin d’assurer une organisation structurée du travail tout en favorisant l’adaptabilité, la collaboration et l’amélioration continue. Ce chapitre détaille les principes Agile appliqués, les rôles et artefacts Scrum mobilisés, ainsi que la planification des différents sprints qui ont guidé l’avancement du projet.  
+
+L’objectif est d’exposer clairement la démarche méthodologique qui a permis de transformer progressivement les besoins identifiés en livrables fonctionnels et cohérents.
+
+\section{Méthodologie Agile}
+
+Dans le cadre de ce projet, nous avons adopté la méthodologie Agile, un cadre de travail moderne privilégiant la flexibilité, l’adaptabilité et l’amélioration continue. Contrairement aux approches classiques comme le cycle en V, où les étapes sont rigides et définies à l’avance, l’Agile repose sur des cycles itératifs courts appelés \textit{sprints}.
+
+Cette méthodologie permet notamment :
+\begin{itemize}
+    \item une meilleure réactivité face aux changements ;
+    \item une communication continue au sein de l’équipe ;
+    \item une amélioration progressive basée sur les retours ;
+    \item une livraison fréquente de fonctionnalités utilisables.
+\end{itemize}
+
+\subsection*{Principes fondamentaux}
+Les principes appliqués dans ce projet s'inspirent du \textbf{Manifeste Agile}, et reposent sur :
+\begin{itemize}
+    \item la collaboration plutôt que des processus rigides ;
+    \item l’adaptation au changement plutôt qu’un plan figé ;
+    \item la livraison fréquente plutôt que des cycles longs ;
+    \item la satisfaction du client par une amélioration continue.
+\end{itemize}
+
+Cette approche est particulièrement adaptée aux projets d’Intelligence Artificielle où les données évoluent et où les modèles doivent être ajustés régulièrement.
+
+\section{Cadre Scrum}
+
+Pour structurer le travail Agile, nous avons utilisé le framework \textbf{Scrum}, très répandu dans les projets informatiques. Scrum organise le projet en sprints permettant de livrer un incrément fonctionnel à chaque cycle.
+
+\subsection*{Les rôles Scrum}
+
+\paragraph{1. Product Owner (PO)}  
+Définit les besoins fonctionnels, priorise le backlog et garantit la valeur ajoutée du produit.  
+Dans ce projet, ce rôle est assuré par l’encadrant pédagogique.
+
+\paragraph{2. Scrum Master}  
+Assure le respect du cadre Scrum, élimine les obstacles et facilite les cérémonies.  
+Ce rôle a été partagé de manière collaborative au sein de l’équipe.
+
+\paragraph{3. Équipe de développement}  
+Responsable du développement du modèle IA, de l’interface Streamlit et du traitement des données.
+
+\section{Les artefacts Scrum}
+
+\paragraph{1. Product Backlog}  
+Il s’agit de la liste complète des besoins du projet :  
+\begin{itemize}
+    \item user stories (étudiant, conseiller, administrateur IA) ;
+    \item exigences fonctionnelles (collecte des données, prédiction, interface Streamlit) ;
+    \item exigences non fonctionnelles (performance du modèle, rapidité).
+\end{itemize}
+
+\paragraph{2. Sprint Backlog}  
+Chaque sprint sélectionne une partie du Product Backlog :
+\begin{itemize}
+    \item développement du modèle IA ;
+    \item interface utilisateur ;
+    \item visualisations et rapport PDF.
+\end{itemize}
+
+\paragraph{3. Incrément}  
+Livrable fonctionnel produit à la fin d’un sprint : dataset nettoyé, première version du modèle, interface initiale, etc.
+
+\section{Les cérémonies Scrum}
+
+\paragraph{1. Sprint Planning}  
+Réunion planifiant les objectifs du sprint et les user stories à réaliser.
+
+\paragraph{2. Daily Scrum}  
+Réunion quotidienne de 10–15 minutes permettant de synchroniser l’équipe autour de :
+\begin{itemize}
+    \item ce qui a été fait ;
+    \item ce qui sera fait ;
+    \item les obstacles rencontrés.
+\end{itemize}
+
+\paragraph{3. Sprint Review}  
+Présentation de l’incrément à la fin du sprint (modèle entraîné, interface fonctionnelle, analyses exploratoires…).
+
+\paragraph{4. Sprint Retrospective}  
+Réunion permettant d’identifier :
+\begin{itemize}
+    \item ce qui a bien fonctionné ;
+    \item ce qui doit être amélioré ;
+    \item les actions pour le sprint suivant.
+\end{itemize}
+
+\section{Organisation des sprints et planification Scrum}
+
+Dans le cadre de la méthodologie Scrum adoptée pour ce projet, le travail a été structuré en trois sprints principaux. Chaque sprint regroupe un ensemble cohérent de \textit{user stories}, organisées selon leur priorité, leur dépendance et leur importance pour la construction progressive du système de prédiction et de recommandation académique.
+
+Les sprints ont été planifiés dans \textbf{Jira}, ce qui a permis :
+\begin{itemize}
+    \item d’avoir une vision claire de l’avancement global ;
+    \item de répartir la charge de travail de manière équilibrée ;
+    \item d’assurer la traçabilité des décisions et des ajustements réalisés à chaque cycle.
+\end{itemize}
+
+% ====== (Optionnel) Capture Jira globale des sprints ======
+\IfFileExists{images/jira-sprints-overview.png}{%
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/jira-sprints-overview.png}
+    \caption{Vue d’ensemble des sprints du projet dans Jira}
+    \label{fig:jira-sprints-overview}
+  \end{figure}
+}{}
+% ==========================================================
+
+\subsection{Sprint 1 — Module étudiant et prédiction initiale}
+Le premier sprint a été consacré à la construction du socle fonctionnel du projet.  
+L’objectif principal était de permettre à l’étudiant de saisir ses informations et d’obtenir une première prédiction générée par un modèle d’apprentissage automatique.
+
+% ====== (Optionnel) Capture Jira Sprint 1 ======
+\IfFileExists{images/sprint1.png}{%
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/sprint1.png}
+    \caption{Planning et suivi du Sprint 1 dans Jira}
+    \label{fig:jira-sprint1}
+  \end{figure}
+}{}
+
+Durant ce sprint, nous avons mis en place :
+\begin{itemize}
+    \item l’interface initiale permettant la saisie des données étudiantes ;
+    \item la génération d’une prédiction immédiate à partir du modèle IA ;
+    \item l’affichage des filières avec un pourcentage de compatibilité ;
+    \item l’entraînement et la comparaison d’un premier ensemble de modèles de Machine Learning.
+\end{itemize}
+
+Ce sprint a permis d’obtenir un \textit{MVP} (Minimum Viable Product) fonctionnel, servant de base aux sprints suivants.
+
+
+% ===============================================
+
+\subsection{Sprint 2 — Fonctionnalités avancées et module Conseiller d’orientation}
+Le second sprint a visé l’enrichissement fonctionnel du système en ajoutant les fonctionnalités destinées au conseiller d’orientation ainsi que des outils d’analyse visuelle.
+
+% ====== (Optionnel) Capture Jira Sprint 2 ======
+\IfFileExists{images/sprint2.png}{%
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/sprint2.png}
+    \caption{Planning et suivi du Sprint 2 dans Jira}
+    \label{fig:jira-sprint2}
+  \end{figure}
+}{}
+% ===============================================
+
+Les principaux travaux réalisés durant ce sprint sont :
+\begin{itemize}
+    \item la consultation des prédictions générées pour les différents étudiants ;
+    \item la visualisation des points forts à travers des graphiques explicatifs ;
+    \item la mise en place de filtres pour organiser et rechercher les résultats ;
+    \item l’intégration de la génération d’un rapport PDF ;
+    \item l’ajout de visualisations globales sur les données et les orientations proposées.
+\end{itemize}
+
+Ce sprint a apporté une dimension analytique au système et a amélioré la lisibilité des résultats pour le conseiller d’orientation.
+
+
+\subsection{Sprint 3 — Gestion du modèle et supervision par l’administrateur IA}
+
+Le troisième sprint s’est concentré sur les fonctionnalités dédiées à l’administrateur IA, afin d’assurer la maintenance et l’évolution continue du modèle.
+% ====== (Optionnel) Capture Jira Sprint 3 ======
+\IfFileExists{images/sprint3.png}{%
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/sprint3.png}
+    \caption{Planning et suivi du Sprint 3 dans Jira}
+    \label{fig:jira-sprint3}
+  \end{figure}
+}{}
+% ===============================================
+Ce sprint a introduit :
+\begin{itemize}
+    \item l’importation et la mise à jour du dataset ;
+    \item le suivi et la sauvegarde des métriques de performance des modèles ;
+    \item le réentraînement du modèle en cas de nouvelles données ;
+    \item l’ajout d’un retour qualitatif pour améliorer la qualité globale du système.
+\end{itemize}
+
+Ce sprint finalise l’écosystème du projet en rendant la solution évolutive, supervisée et adaptable aux changements des données et des besoins.
+\section*{Conclusion du chapitre}
+
+En résumé, la méthodologie Agile associée au cadre Scrum a permis de structurer le projet de manière flexible, itérative et efficace. L’organisation en sprints, soutenue par les différentes cérémonies Scrum, a facilité la planification, le suivi et l’amélioration continue du système.  
+
+Grâce à cette approche, chaque incrément livré a apporté une évolution tangible : première prédiction, outils d’analyse pour le conseiller, puis supervision du modèle par l’administrateur IA. La méthode adoptée s’est ainsi révélée parfaitement adaptée aux exigences d’un projet d’Intelligence Artificielle nécessitant des ajustements fréquents et une adaptation constante aux données.  
+
+Ce cadre méthodologique constitue donc une base solide ayant guidé l’avancement du projet jusqu’aux étapes de conception et de développement présentées dans le chapitre suivant.
+
+
+% ============================
+%      CHAPITRE III
+% ============================
+\ChapterCover{Conception du système d’orientation académique}
+
+\section{Introduction}
+
+Ce chapitre est consacré à la conception du système d’orientation académique.  
+Il vise à présenter les modèles UML permettant de décrire le fonctionnement interne de l’application ainsi que les interactions entre les différents acteurs et composants.  
+Les diagrammes réalisés permettent de passer d’une vision fonctionnelle (user stories, besoins utilisateurs) à une vision structurelle et dynamique, servant de base à la mise en œuvre technique.  
+
+À travers les diagrammes de cas d’utilisation, d’activités et de séquence, nous mettons en évidence la logique du processus de prédiction, les flux de données, ainsi que la coordination entre les modules constituant le système.
+\section{Diagramme de cas d'utilisation}
+
+% ===== Emplacement du diagramme (à remplacer par ton image) =====
+\begin{figure}[h!]
+    \centering
+    % Remplace "images/usecase.png" par le chemin de ton image
+    \includegraphics[width=1.1\textwidth]{images/diagrammes/usecase_orientation.png}
+    \caption{Diagramme de cas d'utilisation du système d’orientation académique}
+    \label{fig:usecase-diagram}
+\end{figure}
+% ===============================================================
+
+\subsection*{->Description du diagramme de cas d’utilisation}
+
+Le diagramme de cas d’utilisation ci-dessus présente les principales interactions entre les acteurs du système d’orientation académique et les fonctionnalités offertes par la plateforme.
+
+Trois acteurs interviennent :
+
+\begin{itemize}
+    \item \textbf{Étudiant} : il saisit ses informations pour obtenir une prédiction d’orientation. Il peut consulter les résultats et recommandations générées par l’IA, lancer une prédiction, et télécharger un rapport d’orientation.
+    \item \textbf{Conseiller d’orientation} : il accède aux orientations des étudiants, peut filtrer les profils, et consulter les statistiques globales permettant d’analyser les tendances d’orientation.
+    \item \textbf{Administrateur IA} : il supervise la qualité du modèle. Il gère le dataset (import et mise à jour), entraîne ou réentraîne le modèle IA, et suit ses performances.
+\end{itemize}
+
+Les relations \textit{includes} indiquent les dépendances entre les cas d’utilisation :
+
+\begin{itemize}
+    \item pour obtenir une prédiction, l’étudiant doit d’abord saisir ses informations ;
+    \item la consultation des résultats inclut la possibilité de télécharger un rapport ;
+    \item l’entraînement du modèle dépend de la gestion du dataset.
+\end{itemize}
+
+Ce diagramme permet ainsi d’obtenir une vue globale sur les fonctionnalités principales du système, ainsi que sur le rôle de chaque acteur dans le processus complet d’orientation académique.
+\section{Diagramme de séquence}
+
+% ===== Emplacement du diagramme (à remplacer par ton image) =====
+\begin{figure}[h!]
+    \centering
+    % Remplace "images/sequence.png" par le chemin de ton image
+    \includegraphics[width=0.650\textwidth]{images/diagrammes/sequence_orientation.jpg}
+    \caption{Diagramme de séquence du processus de prédiction d’orientation}
+    \label{fig:sequence-diagram}
+\end{figure}
+% ===============================================================
+
+\subsection*{->Description du diagramme de séquence}
+
+Le diagramme de séquence ci-dessus décrit l’enchaînement des interactions entre les principaux composants du système lors du processus de prédiction d’orientation académique.
+
+Le scénario débute lorsque l’étudiant accède à l’application et remplit le formulaire depuis l’interface web développée en Streamlit. Après la saisie, les informations sont transmises au service IA chargé d’exécuter le modèle de prédiction.
+
+Le service IA commence par charger le modèle d’apprentissage automatique, puis applique les opérations de prétraitement, notamment l’encodage et la normalisation des données. Il calcule ensuite la prédiction, constituée d’une filière recommandée accompagnée d’un score de confiance, ainsi que les indicateurs psychométriques permettant d’expliquer le résultat (créativité, logique, communication…).
+
+Ces informations sont renvoyées à l’interface web, qui se charge de les afficher sous forme de textes, graphiques et recommandations personnalisées.
+
+L’étudiant peut également demander la génération d’un rapport PDF. Dans ce cas, l’interface envoie une requête spécifique au service IA, qui génère automatiquement le fichier PDF avant de le renvoyer à l’utilisateur. L’application propose alors un lien permettant le téléchargement du document.
+
+Ce diagramme met ainsi en évidence la coordination entre l’étudiant, l’interface Streamlit, le backend IA et le modèle de Machine Learning, en illustrant clairement la répartition des responsabilités et la dynamique d’échange entre les différentes composantes du système.
+\newpage
+\section{Diagramme d'activités}
+
+\begin{figure}[h!]
+    \centering
+    % Remplace "images/activity.png" par le chemin de ton image
+    \includegraphics[width=0.6\textwidth]{images/diagrammes/processus _orientation.png}
+    \caption{Diagramme d'activités du processus de prédiction d’orientation}
+    \label{fig:activity-diagram}
+\end{figure}
+% ===============================================================
+
+\subsection*{->Description du diagramme d’activités}
+
+Ce diagramme d’activités illustre le déroulement complet du processus de prédiction d’orientation académique depuis l’interface web jusqu’à l’affichage final des résultats.
+
+Le processus débute lorsque l’étudiant ouvre l’application et accède au formulaire lui permettant de saisir ses informations personnelles, scolaires et psychométriques (âge, type de baccalauréat, notes, niveau de stress, centres d’intérêts, etc.). Une première vérification est effectuée pour garantir la validité des données saisies. En cas d’erreur, un message d’alerte est affiché et l’étudiant est invité à corriger ses informations.
+
+Lorsque les données sont valides, elles passent par une phase de prétraitement comprenant l’encodage des variables et la normalisation des valeurs. Le modèle d’IA est ensuite chargé en mémoire afin de générer une prédiction accompagnée d’un score de confiance, ainsi que plusieurs indicateurs psychométriques utiles pour interpréter les résultats (logique, créativité, communication…).
+
+Les résultats et recommandations personnalisées sont ensuite présentés à l’écran. L’étudiant peut choisir de générer un rapport PDF contenant une synthèse de la prédiction et des explications détaillées. Si cette option est sélectionnée, le document est généré automatiquement et mis à disposition en téléchargement. Dans le cas contraire, la consultation s’achève simplement sur l’affichage des résultats.
+
+Ce diagramme met en évidence la logique complète du flux de traitement : de la saisie des informations à la génération éventuelle d’un document final, en passant par l’analyse effectuée par le modèle d’Intelligence Artificielle.
+
+\section*{Conclusion}
+
+Ce chapitre a présenté la conception globale du système d’orientation académique, en s’appuyant sur les différents modèles UML nécessaires pour comprendre son fonctionnement interne. Les diagrammes de cas d’utilisation, d’activités et de séquence ont permis de décrire de manière claire :
+
+\begin{itemize}
+    \item les interactions entre les acteurs et le système ;
+    \item les étapes du processus de prédiction ;
+    \item les échanges entre l’interface Streamlit, le service IA et le modèle d’apprentissage.
+\end{itemize}
+
+Cette phase de conception constitue une étape essentielle, car elle sert de base solide à la mise en œuvre technique qui sera détaillée dans le chapitre suivant. Grâce à ces modèles, la structure du système est clarifiée, les responsabilités sont bien identifiées et le développement peut être réalisé de manière cohérente et maîtrisée.
+
 % =========================
 %      FIN DOCUMENT
 % =========================
 \end{document}
-
