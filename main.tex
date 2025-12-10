@@ -99,6 +99,12 @@
   \addcontentsline{toc}{chapter}{Chapitre \Roman{chapter} — #1}
   \clearpage
 }
+% ===== Titre avec puce (•) style sous-section =====
+\newcommand{\bulletsection}[1]{%
+  \vspace{0.4cm}%
+  {\large\bfseries • #1}%
+  \vspace{0.2cm}%
+}
 
 % =========================
 %      DÉBUT DOCUMENT
@@ -531,7 +537,7 @@ Ce cadre méthodologique constitue donc une base solide ayant guidé l’avancem
 % ============================
 \ChapterCover{Conception du système d’orientation académique}
 
-\section{Introduction}
+\section*{Introduction du chapitre}
 
 Ce chapitre est consacré à la conception du système d’orientation académique.  
 Il vise à présenter les modèles UML permettant de décrire le fonctionnement interne de l’application ainsi que les interactions entre les différents acteurs et composants.  
@@ -620,7 +626,7 @@ Les résultats et recommandations personnalisées sont ensuite présentés à l�
 
 Ce diagramme met en évidence la logique complète du flux de traitement : de la saisie des informations à la génération éventuelle d’un document final, en passant par l’analyse effectuée par le modèle d’Intelligence Artificielle.
 
-\section*{Conclusion}
+\section*{Conclusion du chapitre}
 
 Ce chapitre a présenté la conception globale du système d’orientation académique, en s’appuyant sur les différents modèles UML nécessaires pour comprendre son fonctionnement interne. Les diagrammes de cas d’utilisation, d’activités et de séquence ont permis de décrire de manière claire :
 
@@ -631,6 +637,290 @@ Ce chapitre a présenté la conception globale du système d’orientation acad�
 \end{itemize}
 
 Cette phase de conception constitue une étape essentielle, car elle sert de base solide à la mise en œuvre technique qui sera détaillée dans le chapitre suivant. Grâce à ces modèles, la structure du système est clarifiée, les responsabilités sont bien identifiées et le développement peut être réalisé de manière cohérente et maîtrisée.
+
+% ============================
+%      CHAPITRE IV
+% ============================
+\ChapterCover{Architecture du Système et Pipeline d’Apprentissage Automatique}
+
+\section*{Introduction}
+
+Ce chapitre présente l’architecture technique globale du système ainsi que le pipeline d’apprentissage automatique qui constitue le cœur du moteur de recommandation. L’objectif est d’expliquer la structure logicielle du projet, les technologies utilisées et la manière dont les différentes couches interagissent pour assurer le fonctionnement du système.
+Dans un second temps, le pipeline IA est détaillé afin de décrire les étapes successives permettant de transformer des données brutes en prédictions fiables et interprétables. Cette conception assure la cohérence entre l’architecture logicielle et les algorithmes d’intelligence artificielle utilisés pour générer les recommandations d’orientation académique.
+
+\section{Architecture générale du système}
+
+L’architecture adoptée repose sur une approche \textit{trois tiers}, largement utilisée dans les systèmes web modernes. Elle se compose de trois couches principales :
+
+\begin{itemize}
+    \item \textbf{Couche Présentation (Frontend)} : interface web Streamlit ;
+    \item \textbf{Couche Logique Métier (Backend)} : API développée avec FastAPI ;
+    \item \textbf{Couche Données} : base de données MySQL et espace de stockage des fichiers.
+\end{itemize}
+Chaque couche s’appuie sur des technologies adaptées aux exigences d’un système d’Intelligence Artificielle moderne.
+% ====== Emplacement du schéma d'architecture ======
+\begin{figure}[h!]
+    \centering
+    % Remplacer le chemin ci-dessous par le nom réel de ton image
+    \includegraphics[width=0.95\textwidth]{images/architecture technique.png}
+    \caption{Architecture générale du système d’orientation académique}
+    \label{fig:architecture-systeme}
+\end{figure}
+% ==================================================
+
+\subsection{Couche Présentation – Interface Web Streamlit}
+
+
+La couche présentation constitue le point d’entrée du système. Elle est développée avec \textbf{Streamlit}, un framework Python moderne spécialement conçu pour créer rapidement des interfaces web interactives destinées aux applications de Data Science et d’Intelligence Artificielle.
+
+=> Streamlit se distingue par :  
+\begin{itemize}
+    \item son intégration native avec Python ;
+    \item sa rapidité de développement ;
+    \item sa capacité à afficher des visualisations interactives ;
+    \item sa simplicité d’utilisation et sa prise en main intuitive.
+\end{itemize}
+
+% ===== Logo Streamlit / Python =====
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=1.4cm]{images/logo/streamlit.png}
+    \hspace{1.5cm}
+    \includegraphics[height=1.4cm]{images/logo/python.jpeg}
+    \caption*{Technologies utilisées : Streamlit — Python}
+\end{figure}
+% ===================================
+
+=>Cette couche permet aux utilisateurs d'interagir avec les fonctionnalités principales du système :  
+\begin{itemize}
+    \item saisie des informations étudiantes ;
+    \item visualisation des résultats et graphiques explicatifs ;
+    \item téléchargement d’un rapport PDF ;
+    \item accès aux outils d’administration (dataset, réentraînement du modèle).
+\end{itemize}
+
+
+\subsection{Couche Logique Métier – Backend FastAPI}
+
+La couche logique métier centralise l’ensemble des traitements applicatifs. Elle est implémentée en \textbf{FastAPI}, un framework Python performant et largement utilisé pour exposer des modèles d’Intelligence Artificielle.
+
+=>FastAPI présente plusieurs avantages :  
+\begin{itemize}
+    \item très haute performance et traitement asynchrone ;
+    \item documentation automatique (Swagger UI) ;
+    \item compatibilité totale avec les librairies IA ;
+    \item facilité de maintenance et d’évolution.
+\end{itemize}
+
+% ===== Logos FastAPI / Python =====
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=1.4cm]{images/logo/fastapi.png}
+    \hspace{0.7cm}
+    \includegraphics[height=1.4cm]{images/logo/python.jpeg}
+    \caption*{Technologies utilisées : FastAPI — Python}
+\end{figure}
+% ==================================
+=>Elle assure les fonctions essentielles :  
+\begin{itemize}
+    \item prétraitement et validation des données ;
+    \item chargement du modèle IA et exécution des prédictions ;
+    \item réentraînement du modèle ;
+    \item mise à jour des métriques ;
+    \item communication avec MySQL ;
+    \item gestion des fichiers (datasets, modèles, PDF).
+\end{itemize}
+
+\subsection{Couche Données – MySQL et Stockage de fichiers}
+
+La couche données regroupe deux espaces complémentaires :
+\begin{itemize}
+    \item une base de données relationnelle \textbf{MySQL},
+    \item un espace de stockage dédié aux fichiers IA.
+\end{itemize}
+
+\subsubsection*{-Base de données MySQL}
+
+MySQL est utilisé pour stocker les données structurées :  
+\begin{itemize}
+    \item informations étudiants ;
+    \item résultats de prédiction ;
+    \item retours qualitatifs ;
+    \item logs et historique d'exécution.
+\end{itemize}
+% ===== Logos MySQL / Storage =====
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=1.6cm]{images/logo/mysql.png}
+    \caption*{Technologies utilisées : MySQL}
+\end{figure}
+% =================================
+\subsubsection*{-Stockage de fichiers}
+
+Un espace séparé conserve les données non structurées :  
+\begin{itemize}
+    \item datasets (entraînement / mise à jour) ;
+    \item modèles IA sauvegardés ;
+    \item rapports PDF générés pour les utilisateurs.
+\end{itemize}
+
+Ce découpage garantit une gestion optimale entre données structurées et fichiers volumineux.
+
+\section{Justification du choix de l’architecture}
+
+L’architecture adoptée a été choisie pour répondre aux exigences techniques, fonctionnelles et évolutives du projet. Elle permet de garantir un équilibre entre performance, modularité et simplicité de déploiement.
+
+\bulletsection{Adaptation naturelle au cycle de vie d’un système IA}
+
+Les projets d’Intelligence Artificielle nécessitent des mécanismes spécifiques tels que :
+
+\begin{itemize}
+    \item[$\rightarrow$] le réentraînement régulier du modèle ;
+    \item[$\rightarrow$] la gestion de différentes versions du modèle et des datasets ;
+    \item[$\rightarrow$] le stockage de fichiers volumineux ;
+    \item[$\rightarrow$] l’exécution de traitements parfois coûteux en ressources.
+\end{itemize}
+
+L’utilisation d’un backend \textbf{FastAPI} combiné à un stockage fichiers permet de gérer efficacement ces contraintes.
+
+\bulletsection{Souplesse d’intégration et évolutivité}
+
+L’architecture en trois couches permet de modifier ou remplacer un composant sans affecter les autres :
+
+\begin{itemize}
+    \item[$\rightarrow$] remplacement ou amélioration du modèle d’IA ;
+    \item[$\rightarrow$] ajout d’une nouvelle interface (mobile, dashboard administrateur) ;
+    \item[$\rightarrow$] migration vers une autre base de données.
+\end{itemize}
+
+\bulletsection{Interopérabilité et facilité de déploiement}
+
+Grâce à \textbf{FastAPI}, les fonctionnalités IA sont exposées en API REST, permettant :
+
+\begin{itemize}
+    \item[$\rightarrow$] la connexion de n’importe quel frontend ;
+    \item[$\rightarrow$] un déploiement distribué (Streamlit séparé du backend).
+\end{itemize}
+
+\bulletsection{Expérience utilisateur optimale}
+
+Le choix de \textbf{Streamlit} garantit une interface :
+
+\begin{itemize}
+    \item[$\rightarrow$] fluide et réactive ;
+    \item[$\rightarrow$] adaptée aux étudiants, conseillers et administrateurs IA ;
+    \item[$\rightarrow$] intégrant facilement des visualisations.
+\end{itemize}
+
+\bulletsection{Séparation nette des flux IA et métier}
+
+Cette architecture garantit :
+
+\begin{itemize}
+    \item[$\rightarrow$] une isolation de la logique IA ;
+    \item[$\rightarrow$] des traitements optimisés côté serveur ;
+    \item[$\rightarrow$] un frontend rapide même pour des prédictions lourdes.
+\end{itemize}
+
+% ============================
+%      Pipeline IA
+% ============================
+
+\section{Pipeline d’apprentissage automatique (IA)}
+
+% ------ Image du pipeline ------
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/pipeline.png} 
+    \caption{Pipeline global du processus d’apprentissage automatique}
+    \label{fig:pipeline-ia}
+\end{figure}
+
+\vspace{0.3cm}
+
+Le pipeline d’apprentissage automatique constitue le cœur du système de prédiction et regroupe l’ensemble des étapes nécessaires pour transformer les données brutes en recommandations exploitables.  
+Il se compose de quatre phases principales, décrites ci-dessous.
+
+% ---------------------------------
+% 1. Dataset
+% ---------------------------------
+\bulletsection{Dataset — Collecte et préparation des données}
+
+Cette première étape consiste à rassembler les informations nécessaires à l’entraînement du modèle, telles que :
+
+\begin{itemize}
+    \item[$\rightarrow$] les notes des étudiants ;
+    \item[$\rightarrow$] les compétences comportementales ;
+    \item[$\rightarrow$] les centres d’intérêt ;
+    \item[$\rightarrow$] les informations socio-éducatives.
+\end{itemize}
+
+Le dataset est ensuite nettoyé pour éliminer les incohérences, doublons ou valeurs manquantes afin d’assurer une base fiable pour l’apprentissage.
+
+% ---------------------------------
+% 2. Preprocessing
+% ---------------------------------
+\bulletsection{Preprocessing — Prétraitement des données}
+
+Le prétraitement transforme les données brutes en un format compatible avec les algorithmes d’Intelligence Artificielle.  
+Cette étape inclut :
+
+\begin{itemize}
+    \item[$\rightarrow$] l’encodage des variables catégorielles ;
+    \item[$\rightarrow$] la normalisation ou standardisation des données numériques ;
+    \item[$\rightarrow$] la séparation du dataset en ensembles d’entraînement et de test ;
+    \item[$\rightarrow$] l’application de filtres ou corrections si nécessaire.
+\end{itemize}
+
+Cette phase est cruciale pour assurer la qualité des données et la performance du modèle final.
+
+% ---------------------------------
+% 3. Training
+% ---------------------------------
+\bulletsection{Training — Entraînement du modèle IA}
+
+Lors de cette étape, plusieurs modèles sont testés afin d’évaluer leurs performances.  
+Le système :
+
+\begin{itemize}
+    \item[$\rightarrow$] entraîne différents algorithmes (Random Forest, SVM, MLP, etc.) ;
+    \item[$\rightarrow$] compare leurs métriques (accuracy, F1-score, etc.) ;
+    \item[$\rightarrow$] sélectionne le modèle le plus performant ;
+    \item[$\rightarrow$] sauvegarde la version optimale pour les prédictions futures.
+\end{itemize}
+
+Cette phase permet de garantir que le modèle retenu est celui offrant la meilleure fiabilité.
+
+% ---------------------------------
+% 4. Prediction
+% ---------------------------------
+\bulletsection{Prediction — Génération des recommandations}
+
+Une fois le modèle entraîné, il peut prédire la filière la plus adaptée pour un nouvel étudiant.  
+Le système :
+
+\begin{itemize}
+    \item[$\rightarrow$] applique le même prétraitement aux nouvelles données saisies ;
+    \item[$\rightarrow$] exécute le modèle sélectionné ;
+    \item[$\rightarrow$] calcule un pourcentage de compatibilité pour chaque filière ;
+    \item[$\rightarrow$] génère une explication des critères ayant influencé la prédiction.
+\end{itemize}
+
+Cette étape constitue l’aboutissement du pipeline, produisant une recommandation personnalisée, fiable et compréhensible pour l’étudiant ou le conseiller.
+
+\section*{Conclusion du chapitre}
+
+Ce chapitre a permis de présenter l’architecture du système ainsi que le fonctionnement interne du pipeline d’apprentissage automatique. 
+L’approche en trois couches — présentation, logique métier et données — garantit une modularité et une évolutivité adaptées aux exigences 
+d’un système basé sur l’Intelligence Artificielle.
+
+Le pipeline IA, structuré en quatre étapes principales (dataset, prétraitement, entraînement et prédiction), constitue le cœur du modèle 
+de recommandation. Il assure une transformation progressive et maîtrisée des données afin de produire des prédictions fiables et explicables.
+
+Cette architecture et ce pipeline fournissent ainsi une base solide pour la mise en œuvre technique détaillée qui sera développée dans 
+le chapitre suivant, consacré à la réalisation du système.
+
+\ChapterCover{Réalisation et Implémentation}
 
 % =========================
 %      FIN DOCUMENT
