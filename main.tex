@@ -181,6 +181,57 @@
 \tableofcontents
 \clearpage
 
+
+% ========= LISTE DES FIGURES =========
+\clearpage
+\thispagestyle{empty}
+\listoffigures
+\addcontentsline{toc}{section}{Liste des figures}
+\clearpage
+
+\section*{\centering Remerciements}
+\addcontentsline{toc}{section}{Remerciements}
+
+\vspace{-0.3cm}
+\vspace{0.6cm}
+
+Nous tenons à exprimer nos sincères remerciements à notre encadrant pédagogique, \textbf{M. Filali Mohanad}, pour son accompagnement, ses conseils et son suivi tout au long de ce projet.
+
+Nous remercions également l’\textbf{EMSI} et l’ensemble du corps professoral pour la qualité de la formation dispensée, ainsi que pour les moyens mis à notre disposition durant notre parcours académique.
+
+Enfin, nous adressons nos remerciements à toutes les personnes qui ont contribué, de près ou de loin, à la réalisation de ce projet.
+
+\newpage
+\section*{\centering Résumé}
+\vspace{0.6cm}
+
+\addcontentsline{toc}{section}{Résumé}
+
+L’orientation académique représente une étape déterminante pour les étudiants post-bac, mais elle reste souvent influencée par des choix subjectifs et un manque d’informations exploitables. Ce projet propose une solution d’aide à la décision basée sur l’Intelligence Artificielle, capable de \textbf{prédire} et \textbf{recommander} une filière adaptée au profil d’un étudiant à partir de données scolaires et personnelles (notes, type de baccalauréat, centres d’intérêt, indicateurs psychométriques, etc.).
+
+La solution, nommée \textit{Orientation-IA}, s’appuie sur une architecture en trois couches : une interface web interactive développée avec \textbf{Streamlit}, une API métier en \textbf{FastAPI} assurant le prétraitement, l’inférence et la gestion des données, ainsi qu’une couche de persistance basée sur \textbf{MySQL} et un stockage de fichiers pour les modèles et rapports. Un pipeline d’apprentissage automatique complet a été mis en place (préparation des données, prétraitement, entraînement, comparaison des modèles, prédiction et explication). L’application offre également des visualisations, un historique des recommandations et une génération automatique de rapport PDF afin d’améliorer la compréhension et la traçabilité des résultats.
+
+\newpage
+\section*{\centering Abstract}
+\vspace{0.6cm}
+\addcontentsline{toc}{section}{Abstract}
+
+Academic orientation is a key step for post-baccalaureate students, yet it is often driven by subjective choices and limited access to actionable information. This project proposes an Artificial Intelligence–based decision support system that \textbf{predicts} and \textbf{recommends} the most suitable academic track for a student by analyzing academic and personal data (grades, baccalaureate type, interests, and psychometric indicators).
+
+The proposed solution, called \textit{Orientation-IA}, is built on a three-tier architecture: an interactive web interface developed with \textbf{Streamlit}, a \textbf{FastAPI} backend handling data validation, preprocessing, inference, and services, and a data layer combining \textbf{MySQL} with file storage for trained models and generated reports. A complete machine learning pipeline was implemented (data preparation, preprocessing, training, model comparison, prediction, and explanation). The application also provides visual analytics, recommendation history, and automated PDF report generation to improve interpretability and traceability of results.
+
+
+\chapter*{\centering Introduction Générale}
+\addcontentsline{toc}{chapter}{Introduction Générale}
+
+L’orientation académique constitue une étape déterminante dans le parcours des étudiants, car elle conditionne leur réussite académique et leur insertion professionnelle. Cependant, ce choix demeure souvent complexe en raison de la diversité des filières, du manque d’informations personnalisées et de l’accompagnement limité dont disposent les étudiants. Face à ces difficultés, il devient nécessaire de proposer des solutions innovantes capables d’aider les étudiants à prendre des décisions éclairées et adaptées à leur profil.
+
+Dans ce contexte, l’Intelligence Artificielle et les techniques d’apprentissage automatique offrent de nouvelles perspectives pour analyser les données scolaires et comportementales des étudiants afin de fournir des recommandations personnalisées. Ce projet s’inscrit dans cette démarche en proposant la conception et la réalisation d’un système intelligent d’aide à l’orientation académique, intitulé \textit{Orientation-IA}.
+
+L’objectif principal de ce travail est de développer une application capable de recommander des filières académiques pertinentes en se basant sur les performances scolaires, les compétences comportementales et les informations personnelles des étudiants. Pour atteindre cet objectif, une architecture modulaire combinant une interface web interactive, un backend performant et un modèle d’apprentissage automatique a été mise en place.
+
+Ce rapport présente l’ensemble des étapes de réalisation du projet, depuis l’analyse du contexte et la définition des besoins, jusqu’à la conception, l’implémentation et l’évaluation du système proposé.
+
 % ============================
 %      CHAPITRE I
 % ============================
@@ -248,47 +299,49 @@ Pour atteindre cet objectif général, plusieurs objectifs spécifiques ont ét�
     \item Permettre au conseiller d’orientation de consulter les tendances globales ainsi que les résultats individuels des étudiants.
     \item Offrir à l’administrateur IA un accès spécifique pour gérer le dataset, contrôler la qualité des données et entraîner à nouveau le modèle.
 \end{itemize}
-
+\newpage
 % ============================
 %  1.4 User stories
 % ============================
 \section{User Stories}
 
-Les user stories décrivent les besoins exprimés par les différents acteurs du système et permettent de définir les fonctionnalités attendues de manière simple et centrée utilisateur.
-
-\subsection{Acteur : Étudiant}
-
-\begin{itemize}
-    \item \textbf{US1} : En tant qu’étudiant, je veux saisir mes informations pour obtenir une orientation personnalisée.
-    \item \textbf{US2} : Je veux voir plusieurs filières proposées avec un pourcentage de compatibilité.
-    \item \textbf{US3} : Je veux visualiser mes points forts (logique, communication, créativité, etc.).
-    \item \textbf{US4} : Je veux comprendre les critères ayant influencé ma prédiction.
-\end{itemize}
-
-\subsection{Acteur : Conseiller d’orientation}
+Les user stories décrivent les besoins fonctionnels du système selon une approche centrée utilisateur. 
+Elles sont formulées suivant la syntaxe standard : 
+\textit{« En tant qu’utilisateur, je veux … afin de … »}.
 
 \begin{itemize}
-    \item \textbf{US5} : Consulter les orientations générées par l’IA.
-    \item \textbf{US6} : Filtrer les étudiants selon leur profil ou leur orientation.
-    \item \textbf{US7} : Consulter les tendances globales des orientations.
-\end{itemize}
+    \item \textbf{US1} : En tant qu’utilisateur, je veux saisir mes informations personnelles afin d’obtenir une orientation académique personnalisée.
+    
+    \item \textbf{US2} : En tant qu’utilisateur, je veux consulter plusieurs filières proposées avec un pourcentage de compatibilité afin de comparer les options d’orientation.
+    
+    \item \textbf{US3} : En tant qu’utilisateur, je veux visualiser mes points forts (logique, communication, créativité, etc.) afin de mieux comprendre mon profil.
+    
+    \item \textbf{US4} : En tant qu’utilisateur, je veux comprendre les critères ayant influencé la prédiction afin d’interpréter correctement le résultat obtenu.
+  \vspace{0.5cm}
 
-\subsection{Acteur : Administrateur IA}
+    \item \textbf{US5} : En tant qu’utilisateur, je veux consulter les orientations générées par le système afin d’analyser les recommandations proposées.
+    
+    \item \textbf{US6} : En tant qu’utilisateur, je veux filtrer les profils selon les orientations proposées afin de faciliter la recherche et l’analyse des résultats.
+    
+    \item \textbf{US7} : En tant qu’utilisateur, je veux consulter les tendances globales des orientations afin d’identifier les filières les plus recommandées.
+    
+    \item \textbf{US8} : En tant qu’utilisateur, je veux importer ou mettre à jour le dataset afin d’améliorer la qualité des données utilisées par le système.
+    \vspace{0.5cm}
 
-\begin{itemize}
-    \item \textbf{US8} : Importer ou mettre à jour le dataset.
-    \item \textbf{US9} : Entraîner plusieurs modèles et comparer les performances.
-    \item \textbf{US10} : Sauvegarder le meilleur modèle et les métriques associées.
-    \item \textbf{US11} : Réentraîner le modèle en cas de mise à jour du dataset.
-\end{itemize}
+    \item \textbf{US9} : En tant qu’utilisateur, je veux entraîner plusieurs modèles et comparer leurs performances afin de sélectionner le modèle le plus pertinent.
+    
+    \item \textbf{US10} : En tant qu’utilisateur, je veux sauvegarder le meilleur modèle ainsi que ses métriques afin de l’utiliser pour les prédictions futures.
+    
+    \item \textbf{US11} : En tant qu’utilisateur, je veux réentraîner le modèle en cas de mise à jour du dataset afin de maintenir la performance du système.
+    
+    \item \textbf{US12} : En tant qu’utilisateur, je veux accéder à une interface simple et intuitive via Streamlit afin d’interagir facilement avec le système.
+\vspace{0.5cm}
 
-\subsection{Acteur : Utilisateur Web}
-
-\begin{itemize}
-    \item \textbf{US12} : Accéder à une interface simple via Streamlit.
-    \item \textbf{US13} : Soumettre mes données et obtenir une prédiction immédiate.
-    \item \textbf{US14} : Visualiser les résultats sous forme de graphiques.
-    \item \textbf{US15} : Télécharger un rapport PDF contenant l'analyse complète.
+    \item \textbf{US13} : En tant qu’utilisateur, je veux soumettre mes données et obtenir une prédiction immédiate afin de recevoir rapidement une orientation.
+    
+    \item \textbf{US14} : En tant qu’utilisateur, je veux visualiser les résultats sous forme de graphiques afin de mieux interpréter les recommandations.
+    
+    \item \textbf{US15} : En tant qu’utilisateur, je veux télécharger un rapport PDF contenant l’analyse complète afin de conserver une trace des résultats.
 \end{itemize}
 
 % ================================
@@ -303,17 +356,8 @@ Les user stories décrivent les besoins exprimés par les différents acteurs du
     \item Prédiction IA de la filière académique.
     \item Indicateurs psychométriques : logique, créativité, communication, motivation, etc.
     \item Génération automatique d’un rapport PDF détaillé.
-    \item Espace conseiller : consultation des résultats avec filtres.
-    \item Espace administrateur IA : gestion du dataset et entraînement du modèle.
-\end{itemize}
-
-\subsection*{Fonctionnalités exclues}
-
-\begin{itemize}
-    \item Application mobile (non prévue dans cette version).
-    \item Système d'authentification avancé multi-rôle.
-    \item API REST complète (non nécessaire dans la version Streamlit).
-    \item Notifications automatiques (e-mail, SMS).
+    \item Consultation des résultats avec filtres.
+    \item Gestion du dataset et entraînement du modèle.
 \end{itemize}
 
 % ================================
@@ -323,7 +367,7 @@ Les user stories décrivent les besoins exprimés par les différents acteurs du
 \addcontentsline{toc}{section}{Conclusion}
 
 Ce premier chapitre a présenté le cadre général du projet, la problématique à résoudre ainsi que les objectifs fonctionnels et techniques.  
-Il a également exposé les user stories représentant les attentes des différents acteurs impliqués.
+Il a également introduit les user stories décrivant les fonctionnalités attendues du système du point de vue de l’utilisateur.
 
 Ces éléments permettent de comprendre l’intérêt du système proposé et constituent la base nécessaire pour aborder le chapitre suivant consacré à l’analyse et à la conception du système.
 
@@ -386,7 +430,7 @@ Responsable du développement du modèle IA, de l’interface Streamlit et du tr
 \paragraph{1. Product Backlog}  
 Il s’agit de la liste complète des besoins du projet :  
 \begin{itemize}
-    \item user stories (étudiant, conseiller, administrateur IA) ;
+    \item user stories (prédiction, visualisations, rapport PDF) ;
     \item exigences fonctionnelles (collecte des données, prédiction, interface Streamlit) ;
     \item exigences non fonctionnelles (performance du modèle, rapidité).
 \end{itemize}
@@ -448,9 +492,10 @@ Les sprints ont été planifiés dans \textbf{Jira}, ce qui a permis :
 }{}
 % ==========================================================
 
-\subsection{Sprint 1 — Module étudiant et prédiction initiale}
+\subsection{Sprint 1 — Saisie des données et prédiction initiale}
+
 Le premier sprint a été consacré à la construction du socle fonctionnel du projet.  
-L’objectif principal était de permettre à l’étudiant de saisir ses informations et d’obtenir une première prédiction générée par un modèle d’apprentissage automatique.
+L’objectif principal était de permettre la saisie des informations nécessaires et l’obtention d’une première prédiction générée par un modèle d’apprentissage automatique.
 
 % ====== (Optionnel) Capture Jira Sprint 1 ======
 \IfFileExists{images/sprint1.png}{%
@@ -464,7 +509,7 @@ L’objectif principal était de permettre à l’étudiant de saisir ses inform
 
 Durant ce sprint, nous avons mis en place :
 \begin{itemize}
-    \item l’interface initiale permettant la saisie des données étudiantes ;
+    \item l’interface initiale permettant la saisie des données utilisateur ;
     \item la génération d’une prédiction immédiate à partir du modèle IA ;
     \item l’affichage des filières avec un pourcentage de compatibilité ;
     \item l’entraînement et la comparaison d’un premier ensemble de modèles de Machine Learning.
@@ -472,11 +517,11 @@ Durant ce sprint, nous avons mis en place :
 
 Ce sprint a permis d’obtenir un \textit{MVP} (Minimum Viable Product) fonctionnel, servant de base aux sprints suivants.
 
-
 % ===============================================
 
-\subsection{Sprint 2 — Fonctionnalités avancées et module Conseiller d’orientation}
-Le second sprint a visé l’enrichissement fonctionnel du système en ajoutant les fonctionnalités destinées au conseiller d’orientation ainsi que des outils d’analyse visuelle.
+\subsection{Sprint 2 — Fonctionnalités avancées et analyse des résultats}
+
+Le second sprint a visé l’enrichissement fonctionnel du système en ajoutant des fonctionnalités avancées ainsi que des outils d’analyse visuelle.
 
 % ====== (Optionnel) Capture Jira Sprint 2 ======
 \IfFileExists{images/sprint2.png}{%
@@ -491,19 +536,18 @@ Le second sprint a visé l’enrichissement fonctionnel du système en ajoutant 
 
 Les principaux travaux réalisés durant ce sprint sont :
 \begin{itemize}
-    \item la consultation des prédictions générées pour les différents étudiants ;
+    \item la consultation des prédictions générées ;
     \item la visualisation des points forts à travers des graphiques explicatifs ;
     \item la mise en place de filtres pour organiser et rechercher les résultats ;
     \item l’intégration de la génération d’un rapport PDF ;
     \item l’ajout de visualisations globales sur les données et les orientations proposées.
 \end{itemize}
 
-Ce sprint a apporté une dimension analytique au système et a amélioré la lisibilité des résultats pour le conseiller d’orientation.
+Ce sprint a apporté une dimension analytique au système et a amélioré la lisibilité et l’exploitation des résultats.
 
+\subsection{Sprint 3 — Gestion et évolution du modèle d’apprentissage automatique}
 
-\subsection{Sprint 3 — Gestion du modèle et supervision par l’administrateur IA}
-
-Le troisième sprint s’est concentré sur les fonctionnalités dédiées à l’administrateur IA, afin d’assurer la maintenance et l’évolution continue du modèle.
+Le troisième sprint s’est concentré sur les fonctionnalités liées à la gestion et à l’évolution continue du modèle d’Intelligence Artificielle.
 % ====== (Optionnel) Capture Jira Sprint 3 ======
 \IfFileExists{images/sprint3.png}{%
   \begin{figure}[h!]
@@ -514,6 +558,7 @@ Le troisième sprint s’est concentré sur les fonctionnalités dédiées à l�
   \end{figure}
 }{}
 % ===============================================
+
 Ce sprint a introduit :
 \begin{itemize}
     \item l’importation et la mise à jour du dataset ;
@@ -523,14 +568,14 @@ Ce sprint a introduit :
 \end{itemize}
 
 Ce sprint finalise l’écosystème du projet en rendant la solution évolutive, supervisée et adaptable aux changements des données et des besoins.
+
 \section*{Conclusion du chapitre}
 
 En résumé, la méthodologie Agile associée au cadre Scrum a permis de structurer le projet de manière flexible, itérative et efficace. L’organisation en sprints, soutenue par les différentes cérémonies Scrum, a facilité la planification, le suivi et l’amélioration continue du système.  
 
-Grâce à cette approche, chaque incrément livré a apporté une évolution tangible : première prédiction, outils d’analyse pour le conseiller, puis supervision du modèle par l’administrateur IA. La méthode adoptée s’est ainsi révélée parfaitement adaptée aux exigences d’un projet d’Intelligence Artificielle nécessitant des ajustements fréquents et une adaptation constante aux données.  
+Grâce à cette approche, chaque incrément livré a apporté une évolution tangible : première prédiction, outils d’analyse des résultats, puis supervision et évolution continue du modèle d’Intelligence Artificielle. La méthode adoptée s’est ainsi révélée parfaitement adaptée aux exigences d’un projet d’IA nécessitant des ajustements fréquents et une adaptation constante aux données.  
 
 Ce cadre méthodologique constitue donc une base solide ayant guidé l’avancement du projet jusqu’aux étapes de conception et de développement présentées dans le chapitre suivant.
-
 
 % ============================
 %      CHAPITRE III
@@ -556,7 +601,7 @@ Les diagrammes réalisés permettent de passer d’une vision fonctionnelle (use
 \end{figure}
 % ===============================================================
 
-\subsection*{->Description du diagramme de cas d’utilisation}
+\subsection*{=>Description du diagramme de cas d’utilisation}
 
 Le diagramme de cas d’utilisation ci-dessus présente les principales interactions entre les acteurs du système d’orientation académique et les fonctionnalités offertes par la plateforme.
 
@@ -589,7 +634,7 @@ Ce diagramme permet ainsi d’obtenir une vue globale sur les fonctionnalités p
 \end{figure}
 % ===============================================================
 
-\subsection*{->Description du diagramme de séquence}
+\subsection*{=>Description du diagramme de séquence}
 
 Le diagramme de séquence ci-dessus décrit l’enchaînement des interactions entre les principaux composants du système lors du processus de prédiction d’orientation académique.
 
@@ -614,7 +659,7 @@ Ce diagramme met ainsi en évidence la coordination entre l’étudiant, l’int
 \end{figure}
 % ===============================================================
 
-\subsection*{->Description du diagramme d’activités}
+\subsection*{=>Description du diagramme d’activités}
 
 Ce diagramme d’activités illustre le déroulement complet du processus de prédiction d’orientation académique depuis l’interface web jusqu’à l’affichage final des résultats.
 
@@ -662,7 +707,7 @@ Chaque couche s’appuie sur des technologies adaptées aux exigences d’un sys
 \begin{figure}[h!]
     \centering
     % Remplacer le chemin ci-dessous par le nom réel de ton image
-    \includegraphics[width=0.95\textwidth]{images/architecture technique.png}
+    \includegraphics[width=0.95\textwidth]{images/architecture technique1.png}
     \caption{Architecture générale du système d’orientation académique}
     \label{fig:architecture-systeme}
 \end{figure}
@@ -687,7 +732,7 @@ La couche présentation constitue le point d’entrée du système. Elle est dé
     \includegraphics[height=1.4cm]{images/logo/streamlit.png}
     \hspace{1.5cm}
     \includegraphics[height=1.4cm]{images/logo/python.jpeg}
-    \caption*{Technologies utilisées : Streamlit — Python}
+    \caption{Logos : Streamlit — Python}
 \end{figure}
 % ===================================
 
@@ -718,7 +763,7 @@ La couche logique métier centralise l’ensemble des traitements applicatifs. E
     \includegraphics[height=1.4cm]{images/logo/fastapi.png}
     \hspace{0.7cm}
     \includegraphics[height=1.4cm]{images/logo/python.jpeg}
-    \caption*{Technologies utilisées : FastAPI — Python}
+    \caption{Logos: FastAPI — Python}
 \end{figure}
 % ==================================
 =>Elle assure les fonctions essentielles :  
@@ -752,7 +797,7 @@ MySQL est utilisé pour stocker les données structurées :
 \begin{figure}[h!]
     \centering
     \includegraphics[height=1.6cm]{images/logo/mysql.png}
-    \caption*{Technologies utilisées : MySQL}
+    \caption{Logo:MySQL}
 \end{figure}
 % =================================
 \subsubsection*{-Stockage de fichiers}
@@ -921,6 +966,229 @@ Cette architecture et ce pipeline fournissent ainsi une base solide pour la mise
 le chapitre suivant, consacré à la réalisation du système.
 
 \ChapterCover{Réalisation et Implémentation}
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+Ce chapitre présente la réalisation et l’implémentation du système d’orientation académique \textit{Orientation-IA}. Il décrit la mise en œuvre concrète des différents composants de l’application, depuis l’organisation générale du projet jusqu’à l’implémentation des interfaces et des fonctionnalités principales.  
+Les écrans de l’application sont également présentés afin d’illustrer le parcours utilisateur et les interactions entre les différentes couches du système.
+% 5.1 Organisation générale du projet
+% ============================
+
+\section{Organisation générale du projet}
+
+Le projet \textit{Orientation-IA} est organisé selon une structure modulaire visant à séparer clairement les différentes responsabilités du système. 
+Cette organisation facilite la compréhension du code, la maintenance, l’évolutivité et le travail collaboratif.
+
+L’arborescence globale du projet est présentée à la Figure~5.1 et repose sur une séparation logique entre l’environnement de développement, le backend, le frontend, le module d’apprentissage automatique et les ressources associées.
+
+% ===== Image : Architecture / Arborescence globale (Figure 5.1) =====
+\begin{figure}[h!]
+    \centering
+    % Remplace par ton image globale (arborescence/architecture du projet)
+    \includegraphics[width=0.5\textwidth]{images/interface/archgene.png}
+    \caption{Vue globale de l’arborescence du projet Orientation-IA}
+    \label{fig:arborescence-globale}
+\end{figure}
+% ================================================================
+
+
+% ============================
+% 5.1.1 Vue globale de l’arborescence
+% ============================
+\subsection{Vue globale de l’arborescence}
+
+Le projet est structuré autour des répertoires principaux suivants :
+
+\begin{itemize}
+    \item \textbf{.venv} : environnement virtuel Python contenant les dépendances du projet ;
+    \item \textbf{backend} : implémentation de l’API FastAPI et de la logique métier ;
+    \item \textbf{frontend} : interface utilisateur développée avec Streamlit ;
+    \item \textbf{ml} : scripts liés à l’expérimentation et à l’entraînement du modèle ;
+    \item \textbf{models} : stockage des modèles d’apprentissage automatique et des métadonnées ;
+    \item \textbf{data} : données utilisées pour l’entraînement et les tests ;
+    \item \textbf{docs} : documentation et ressources associées au projet.
+\end{itemize}
+
+Cette organisation reflète une séparation claire entre les composants applicatifs, les données et les modèles IA.
+
+
+% ============================
+% 5.1.2 Organisation du backend (FastAPI)
+% ============================
+\subsection{Organisation du backend (FastAPI)}
+% ===== Image : Architecture Backend =====
+\begin{figure}[h!]
+    \centering
+    % Remplace par ton image backend (structure des dossiers backend/app)
+    \includegraphics[width=0.4\textwidth]{images/interface/archback.png}
+    \caption{Organisation interne du backend FastAPI}
+    \label{fig:backend-structure}
+\end{figure}
+% ================================================================
+Le dossier \textbf{backend} contient l’ensemble de la logique serveur de l’application. 
+Il est structuré autour du répertoire \textbf{app}, qui regroupe les composants essentiels de l’API.
+
+
+
+\begin{itemize}
+    \item \textbf{main.py} : point d’entrée de l’application FastAPI, responsable de l’initialisation du serveur et du routage principal ;
+    \item \textbf{routers/} : définition des endpoints de l’API (prédiction, entraînement, gestion des données, etc.) ;
+    \item \textbf{services/} : implémentation de la logique métier, incluant l’appel au modèle IA et le traitement des requêtes ;
+    \item \textbf{models/} : définition des modèles internes utilisés par l’application ;
+    \item \textbf{schemas/} : schémas de validation des données échangées entre le frontend et le backend ;
+    \item \textbf{core/} : configuration générale et éléments transverses ;
+    \item \textbf{ml\_model.py} : gestion du chargement et de l’exécution du modèle d’apprentissage automatique ;
+    \item \textbf{test\_db.py} : scripts de test pour la connexion et la manipulation de la base de données ;
+    \item \textbf{requirements.txt} : liste des dépendances Python nécessaires au backend ;
+    \item \textbf{.env} : fichier de configuration des variables d’environnement.
+\end{itemize}
+
+Cette structuration permet de respecter les bonnes pratiques de développement des API REST et d’assurer une bonne lisibilité du code.
+
+
+% ============================
+% 5.1.3 Organisation du frontend (Streamlit)
+% ============================
+\subsection{Organisation du frontend (Streamlit)}
+\begin{figure}[h!]
+    \centering
+    % Remplace par ton image frontend (structure du dossier frontend/pages ou app)
+    \includegraphics[width=0.6\textwidth]{images/interface/archifront.png}
+    \caption{Organisation du frontend Streamlit}
+    \label{fig:frontend-structure}
+\end{figure}
+Le dossier \textbf{frontend} contient l’interface utilisateur développée avec Streamlit.
+
+\begin{itemize}
+    \item \textbf{app.py} : fichier principal de l’interface, responsable de l’affichage des pages, de la collecte des données utilisateur et de l’appel aux services backend ;
+    \item \textbf{requirements.txt} : dépendances spécifiques à l’interface Streamlit.
+\end{itemize}
+
+Le frontend communique avec le backend via des requêtes HTTP, ce qui garantit une séparation nette entre l’interface utilisateur et la logique métier.
+
+
+% ============================
+% 5.1.4 Organisation du module IA et des modèles
+% ============================
+\subsection{Organisation du module IA et des modèles}
+\begin{figure}[h!]
+    \centering
+    % Remplace par ton image backend (structure des dossiers backend/app)
+    \includegraphics[width=0.6\textwidth]{images/interface/archiml.png}
+    \caption{Organisation du module ia et des modèles}
+    \label{fig:ml-structure}
+\end{figure}
+Le dossier \textbf{ml} est dédié aux expérimentations et à l’entraînement des modèles d’apprentissage automatique.  
+Le dossier \textbf{models} regroupe les artefacts produits par le pipeline IA :
+
+\begin{itemize}
+    \item \textbf{pipeline.joblib} : modèle entraîné et sérialisé utilisé pour les prédictions ;
+    \item \textbf{model\_meta.json} : métadonnées associées au modèle (paramètres, métriques, version).
+\end{itemize}
+
+Cette séparation permet de gérer efficacement les différentes versions du modèle et de faciliter leur réutilisation dans l’application.
+
+
+% ============================
+% 5.1.5 Avantages de cette organisation
+% ============================
+\subsection{Avantages de cette organisation}
+
+Cette organisation du projet présente plusieurs avantages :
+
+\begin{itemize}
+    \item séparation claire entre interface, backend et Intelligence Artificielle ;
+    \item facilité de maintenance et d’évolution du système ;
+    \item possibilité de réentraîner ou remplacer le modèle IA sans impacter l’interface ;
+    \item meilleure lisibilité du code pour les développeurs et les évaluateurs.
+\end{itemize}
+
+Elle constitue une base solide pour l’implémentation détaillée des fonctionnalités présentées dans les sections suivantes.
+\subsection{Interfaces et écrans de l’application}
+
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Remplace le nom du fichier par le tien si nécessaire
+    \includegraphics[width=1.14\textwidth]{images/interface/accueil.png}
+    \caption{Interface principale de saisie des informations étudiantes}
+    \label{fig:interface-principale}
+\end{figure}
+La Figure~\ref{fig:interface-principale} présente l’interface principale de l’application \textit{Orientation IA}, développée avec \textbf{Streamlit}.
+Elle permet à l’étudiant de saisir ses informations personnelles et ses notes scolaires, qui constituent les données d’entrée du processus de prédiction.
+L’interface, claire et intuitive, intègre une navigation latérale donnant accès aux différentes sections de l’application.
+Cette page constitue le point d’entrée du système et alimente le pipeline d’apprentissage automatique afin de générer une recommandation d’orientation académique personnalisée.
+
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Image de la saisie des informations personnelles
+    \includegraphics[width=1.14\textwidth]{images/interface/info.png}
+    \caption{Saisie des informations personnelles de l’étudiant}
+    \label{fig:saisie-infos-etudiant}
+\end{figure}
+La Figure~\ref{fig:saisie-infos-etudiant} illustre l’interface de saisie des informations personnelles de l’étudiant, incluant les données d’identification et le type de baccalauréat.
+Ces informations constituent le contexte général utilisé, avec les données académiques, pour affiner la recommandation d’orientation.
+L’interface est conçue de manière simple et intuitive afin de faciliter la saisie des données.
+
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Image de la saisie des notes et scores comportementaux
+    \includegraphics[width=1.15\textwidth]{images/interface/notes.png}
+    \caption{Saisie des notes scolaires et des scores comportementaux}
+    \label{fig:saisie-notes-scores}
+\end{figure}
+La Figure~\ref{fig:saisie-notes-scores} présente l’interface de saisie des performances académiques et des scores comportementaux de l’étudiant.
+Elle permet de renseigner les notes par matière, avec un calcul automatique de la moyenne générale, ainsi que des scores cognitifs via des curseurs interactifs.
+Ces données constituent les principales variables d’entrée du pipeline d’apprentissage automatique pour l’évaluation du profil académique et cognitif.
+
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Image de l'affichage des résultats et recommandations
+    \includegraphics[width=1.15\textwidth]{images/interface/resultat.png}
+    \caption{Affichage des résultats et recommandations d’orientation}
+    \label{fig:resultats-orientation}
+\end{figure}
+La Figure~\ref{fig:resultats-orientation} illustre l’affichage des résultats générés par le système d’orientation après l’exécution du modèle IA.
+Elle présente la filière recommandée, un classement des meilleures propositions ainsi qu’une option de téléchargement du rapport PDF.
+Cette interface constitue l’aboutissement du processus de prédiction en fournissant une recommandation claire et personnalisée.
+
+\newpage
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Image du dashboard du conseiller d’orientation
+    \includegraphics[width=0.95\textwidth]{images/interface/dashboard.png}
+    \caption{Dashboard du conseiller d’orientation}
+    \label{fig:dashboard-conseiller}
+\end{figure}
+La Figure~\ref{fig:dashboard-conseiller} illustre le tableau de bord du conseiller d’orientation.
+Il présente une vue synthétique des recommandations générées, accompagnée d’indicateurs globaux et de visualisations graphiques.
+Ces éléments permettent d’analyser les tendances d’orientation selon différents critères et de mieux comprendre les profils des étudiants.
+
+\begin{figure}[htbp]
+    \centering
+    % 🔽 Image de l’historique des recommandations
+    \includegraphics[width=0.95\textwidth]{images/interface/historique.png}
+    \caption{Historique des recommandations}
+    \label{fig:historique-recommandations}
+\end{figure}
+La Figure~\ref{fig:historique-recommandations} présente la page d’historique des recommandations générées par le système.
+Elle affiche, sous forme de tableau, les orientations enregistrées et permet leur consultation, leur suivi ainsi que l’export des données.
+Cette interface facilite l’analyse et l’exploitation des recommandations passées.
+\section*{Conclusion du chapitre}
+\addcontentsline{toc}{section}{Conclusion du chapitre}
+Ce chapitre a présenté la réalisation et l’implémentation du système d’orientation académique \textit{Orientation-IA}. Il a permis de décrire l’organisation générale du projet, la structuration des modules ainsi que la mise en œuvre concrète des composants frontend, backend et du module d’Intelligence Artificielle.Les principales interfaces de l’application ont été introduites afin d’illustrer le parcours utilisateur, depuis la saisie des informations étudiantes jusqu’à l’affichage des résultats et des recommandations d’orientation. Le tableau de bord du conseiller et la page d’historique viennent compléter le système en offrant des fonctionnalités de suivi et d’analyse des données.
+
+Cette phase de réalisation confirme la cohérence des choix de conception et d’architecture adoptés. Le chapitre suivant sera consacré à l’évaluation du modèle et à l’analyse des résultats, afin d’apprécier la performance et la pertinence des recommandations générées.
+\ChapterCover{Conclusion Générale}
+
+Ce projet a porté sur la conception et la réalisation d’un système intelligent d’aide à l’orientation académique basé sur les techniques d’Intelligence Artificielle et d’apprentissage automatique. Face aux difficultés rencontrées par les étudiants dans le choix de leur filière, l’objectif principal était de proposer une solution capable de fournir des recommandations personnalisées, fiables et exploitables, en tenant compte des performances scolaires, des compétences comportementales et des informations personnelles des étudiants.
+
+Tout au long de ce travail, une démarche méthodologique structurée a été adoptée. Après l’analyse du contexte et la définition des besoins fonctionnels, une architecture modulaire a été conçue, reposant sur une interface utilisateur développée avec Streamlit, un backend sous forme d’API REST implémentée avec FastAPI, et un module d’apprentissage automatique dédié à la génération des prédictions. Le pipeline IA mis en place, depuis la préparation des données jusqu’à la prédiction finale, constitue le cœur du système et garantit la cohérence des résultats produits.
+
+La phase de réalisation a permis de concrétiser les choix de conception en une application fonctionnelle. Les différentes interfaces développées offrent une expérience utilisateur intuitive aussi bien pour l’étudiant que pour le conseiller d’orientation, tandis que le backend assure la gestion des données, l’exécution du modèle IA et le suivi des recommandations. Les résultats obtenus démontrent la faisabilité et l’intérêt d’un tel système dans un contexte d’orientation académique assistée par l’IA.
+
+En perspective, plusieurs axes d’amélioration peuvent être envisagés, notamment l’enrichissement du dataset, l’intégration de nouveaux critères d’évaluation, l’amélioration des performances du modèle par l’utilisation d’algorithmes plus avancés, ainsi que le déploiement de l’application sur une plateforme cloud ou mobile. Ces évolutions permettraient de renforcer la précision des recommandations et d’élargir l’usage du système à un plus grand nombre d’utilisateurs.
+
+En conclusion, ce projet a permis de mettre en œuvre une solution innovante et cohérente combinant Intelligence Artificielle et technologies web modernes, contribuant ainsi à une meilleure orientation académique et à un accompagnement plus personnalisé des étudiants.
 
 % =========================
 %      FIN DOCUMENT
