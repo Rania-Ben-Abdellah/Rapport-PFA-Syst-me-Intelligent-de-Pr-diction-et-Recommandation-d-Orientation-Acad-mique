@@ -5,51 +5,49 @@
 \contentsline {section}{Abstract}{6}{section*.3}%
 \contentsline {chapter}{Introduction Générale}{7}{chapter*.4}%
 \contentsline {chapter}{Chapitre I — Présentation du projet}{8}{section*.5}%
-\contentsline {section}{\numberline {1.1}Introduction}{9}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Contexte et sujet du projet}{9}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Problématique}{9}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Objectifs du projet}{10}{section.1.4}%
-\contentsline {section}{\numberline {1.5}User Stories}{11}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Périmètre fonctionnel du projet}{12}{section.1.6}%
-\contentsline {section}{Conclusion}{12}{section*.9}%
-\contentsline {chapter}{Chapitre II — Méthodologie de travail}{13}{section*.10}%
+\contentsline {section}{\numberline {1.1}Contexte et sujet du projet}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Problématique}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Objectifs du projet}{10}{section.1.3}%
+\contentsline {section}{\numberline {1.4}User Stories}{11}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Périmètre fonctionnel du projet}{12}{section.1.5}%
+\contentsline {chapter}{Chapitre II — Méthodologie de travail}{13}{section*.11}%
 \contentsline {section}{\numberline {2.1}Méthodologie Agile}{14}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Cadre Scrum}{15}{section.2.2}%
-\contentsline {paragraph}{1. Product Owner (PO)}{15}{section*.14}%
-\contentsline {paragraph}{2. Scrum Master}{15}{section*.15}%
-\contentsline {paragraph}{3. Équipe de développement}{15}{section*.16}%
+\contentsline {paragraph}{1. Product Owner (PO)}{15}{section*.15}%
+\contentsline {paragraph}{2. Scrum Master}{15}{section*.16}%
+\contentsline {paragraph}{3. Équipe de développement}{15}{section*.17}%
 \contentsline {section}{\numberline {2.3}Les artefacts Scrum}{15}{section.2.3}%
-\contentsline {paragraph}{1. Product Backlog}{15}{section*.17}%
-\contentsline {paragraph}{2. Sprint Backlog}{15}{section*.18}%
-\contentsline {paragraph}{3. Incrément}{15}{section*.19}%
+\contentsline {paragraph}{1. Product Backlog}{15}{section*.18}%
+\contentsline {paragraph}{2. Sprint Backlog}{15}{section*.19}%
+\contentsline {paragraph}{3. Incrément}{15}{section*.20}%
 \contentsline {section}{\numberline {2.4}Les cérémonies Scrum}{15}{section.2.4}%
-\contentsline {paragraph}{1. Sprint Planning}{15}{section*.20}%
-\contentsline {paragraph}{2. Daily Scrum}{16}{section*.21}%
-\contentsline {paragraph}{3. Sprint Review}{16}{section*.22}%
-\contentsline {paragraph}{4. Sprint Retrospective}{16}{section*.23}%
+\contentsline {paragraph}{1. Sprint Planning}{15}{section*.21}%
+\contentsline {paragraph}{2. Daily Scrum}{16}{section*.22}%
+\contentsline {paragraph}{3. Sprint Review}{16}{section*.23}%
+\contentsline {paragraph}{4. Sprint Retrospective}{16}{section*.24}%
 \contentsline {section}{\numberline {2.5}Organisation des sprints et planification Scrum}{16}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Sprint 1 — Saisie des données et prédiction initiale}{16}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Sprint 2 — Fonctionnalités avancées et analyse des résultats}{17}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}Sprint 3 — Gestion et évolution du modèle d’apprentissage automatique}{18}{subsection.2.5.3}%
-\contentsline {chapter}{Chapitre III — Conception du système d’orientation académique}{19}{section*.28}%
+\contentsline {subsection}{\numberline {2.5.1}Sprint 1 — Collecte des données et prédiction de base}{16}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Sprint 2 — Analyse avancée et génération de rapports}{17}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3}Sprint 3 — Gestion du modèle IA et amélioration continue}{18}{subsection.2.5.3}%
+\contentsline {chapter}{Chapitre III — Conception du système d’orientation académique}{19}{section*.29}%
 \contentsline {section}{\numberline {3.1}Diagramme de cas d'utilisation}{20}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Diagramme de séquence}{21}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Diagramme d'activités}{23}{section.3.3}%
-\contentsline {chapter}{Chapitre IV — Architecture du Système et Pipeline d’Apprentissage Automatique}{25}{section*.37}%
-\contentsline {section}{\numberline {4.1}Architecture générale du système}{26}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Couche Présentation – Interface Web Streamlit}{27}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Couche Logique Métier – Backend FastAPI}{27}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Couche Données – MySQL et Stockage de fichiers}{28}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Justification du choix de l’architecture}{28}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pipeline d’apprentissage automatique (IA)}{30}{section.4.3}%
-\contentsline {chapter}{Chapitre V — Réalisation et Implémentation}{32}{section*.47}%
-\contentsline {section}{Introduction}{33}{section*.48}%
-\contentsline {section}{\numberline {5.1}Organisation générale du projet}{33}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Vue globale de l’arborescence}{33}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Organisation du backend (FastAPI)}{34}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Organisation du frontend (Streamlit)}{35}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Organisation du module IA et des modèles}{35}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}Avantages de cette organisation}{36}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}Interfaces et écrans de l’application}{36}{subsection.5.1.6}%
-\contentsline {section}{Conclusion du chapitre}{40}{section*.59}%
-\contentsline {chapter}{Chapitre VI — Conclusion Générale}{41}{section*.60}%
+\contentsline {section}{\numberline {3.2}Diagramme de séquence}{22}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Diagramme d'activités}{24}{section.3.3}%
+\contentsline {chapter}{Chapitre IV — Architecture du Système et Pipeline d’Apprentissage Automatique}{26}{section*.38}%
+\contentsline {section}{\numberline {4.1}Architecture générale du système}{27}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Couche Présentation – Interface Web Streamlit}{28}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Couche Logique Métier – Backend FastAPI}{28}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Couche Données – MySQL et Stockage de fichiers}{29}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Justification du choix de l’architecture}{29}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pipeline d’apprentissage automatique (IA)}{31}{section.4.3}%
+\contentsline {chapter}{Chapitre V — Réalisation et Implémentation}{33}{section*.48}%
+\contentsline {section}{\numberline {5.1}Organisation générale du projet}{34}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Vue globale de l’arborescence}{34}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Organisation du backend (FastAPI)}{35}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Organisation du frontend (Streamlit)}{36}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Organisation du module IA et des modèles}{36}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Avantages de cette organisation}{37}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Interfaces et écrans de l’application}{37}{subsection.5.1.6}%
+\contentsline {chapter}{Chapitre VI — Conclusion Générale}{42}{section*.61}%
+\contentsline {section}{Perspectives et travaux futurs}{44}{chapter*.62}%
+\contentsline {chapter}{Bibliographie}{45}{chapter*.62}%

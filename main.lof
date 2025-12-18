@@ -1,22 +1,22 @@
 \babel@toc {french}{}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Planning et suivi du Sprint 1 dans Jira}}{17}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Planning et suivi du Sprint 2 dans Jira}}{17}{figure.caption.25}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Planning et suivi du Sprint 3 dans Jira}}{18}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramme de cas d'utilisation du système d’orientation académique}}{20}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagramme de séquence du processus de prédiction d’orientation}}{21}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramme d'activités du processus de prédiction d’orientation}}{23}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture générale du système d’orientation académique}}{26}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Logos : Streamlit — Python}}{27}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Logos: FastAPI — Python}}{27}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Logo:MySQL}}{28}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Pipeline global du processus d’apprentissage automatique}}{30}{figure.caption.45}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Vue globale de l’arborescence du projet Orientation-IA}}{33}{figure.caption.49}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Organisation interne du backend FastAPI}}{34}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Organisation du frontend Streamlit}}{35}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Organisation du module ia et des modèles}}{35}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Interface principale de saisie des informations étudiantes}}{36}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Saisie des informations personnelles de l’étudiant}}{37}{figure.caption.54}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Saisie des notes scolaires et des scores comportementaux}}{37}{figure.caption.55}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Affichage des résultats et recommandations d’orientation}}{38}{figure.caption.56}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Dashboard du conseiller d’orientation}}{39}{figure.caption.57}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Historique des recommandations}}{39}{figure.caption.58}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Planning et suivi du Sprint 1 dans Jira}}{17}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Planning et suivi du Sprint 2 dans Jira}}{17}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Planning et suivi du Sprint 3 dans Jira}}{18}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramme de cas d'utilisation du système d’orientation académique}}{20}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagramme de séquence du processus de prédiction d’orientation}}{22}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagramme d'activités du processus de prédiction d’orientation}}{24}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture générale du système d’orientation académique}}{27}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Logos : Streamlit — Python}}{28}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Logos: FastAPI — Python}}{28}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Logo:MySQL}}{29}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Pipeline global du processus d’apprentissage automatique}}{31}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Vue globale de l’arborescence du projet Orientation-IA}}{34}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Organisation interne du backend FastAPI}}{35}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Organisation du frontend Streamlit}}{36}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Organisation du module ia et des modèles}}{36}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Interface principale de saisie des informations étudiantes}}{37}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Saisie des informations personnelles de l’étudiant}}{38}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Saisie des notes scolaires et des scores comportementaux}}{38}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Affichage des résultats et recommandations d’orientation}}{39}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Dashboard d’analyse}}{40}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Historique des recommandations}}{40}{figure.caption.59}%

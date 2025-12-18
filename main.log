@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.23)  17 DEC 2025 22:47
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.8.23)  18 DEC 2025 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1082,7 +1082,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Overfull \hbox (9.24333pt too wide) in paragraph at lines 161--172
+Overfull \hbox (9.24333pt too wide) in paragraph at lines 160--171
  [] 
  []
 
@@ -1124,7 +1124,7 @@ Overfull \hbox (9.24333pt too wide) in paragraph at lines 161--172
 ]
 
 [8]
-Overfull \hbox (7.52681pt too wide) in paragraph at lines 271--272
+Overfull \hbox (7.52681pt too wide) in paragraph at lines 282--283
 []\TU/TimesNewRoman(0)/m/n/12 Cette problématique met en évidence plusieurs lim
 ites observées dans les systèmes d’orien-
  []
@@ -1148,8 +1148,8 @@ ites observées dans les systèmes d’orien-
 ]
 
 [15]
-File: images/sprint1.png Graphic file (type bmp)
-<images/sprint1.png>
+File: images/sprint11.png Graphic file (type bmp)
+<images/sprint11.png>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1157,55 +1157,58 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [16]
-File: images/sprint2.png Graphic file (type bmp)
-<images/sprint2.png>
-File: images/sprint3.png Graphic file (type bmp)
-<images/sprint3.png>
+File: images/sprint22.png Graphic file (type bmp)
+<images/sprint22.png>
 
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 559--559
+
+[17]
+File: images/sprint33.png Graphic file (type bmp)
+<images/sprint33.png>
+
+Overfull \hbox (45.52718pt too wide) in paragraph at lines 569--569
  [][] 
  []
 
 
-
-[17]
 
 [18]
 
 [19]
-File: images/diagrammes/usecase_orientation.png Graphic file (type bmp)
-<images/diagrammes/usecase_orientation.png>
-
-Overfull \hbox (45.52718pt too wide) in paragraph at lines 598--599
- [][] 
- []
-
+File: images/diagrammes/usecase2.png Graphic file (type bmp)
+<images/diagrammes/usecase2.png>
 
 
 [20
 
 ]
+
+[21]
 File: images/diagrammes/sequence_orientation.jpg Graphic file (type bmp)
 <images/diagrammes/sequence_orientation.jpg>
 
+Overfull \hbox (40.97029pt too wide) in paragraph at lines 632--633
+ [][] 
+ []
 
-[21]
+
 
 [22]
+
+[23]
 File: images/diagrammes/processus _orientation.png Graphic file (type bmp)
 <images/diagrammes/processus _orientation.png>
 
 
-[23]
-
 [24]
 
 [25]
+
+[26]
 File: images/architecture technique1.png Graphic file (type bmp)
 <images/architecture technique1.png>
 
 
-[26
+[27
 
 ]
 File: images/logo/streamlit.png Graphic file (type bmp)
@@ -1218,52 +1221,47 @@ File: images/logo/python.jpeg Graphic file (type bmp)
 <images/logo/python.jpeg>
 
 
-[27]
+[28]
 File: images/logo/mysql.png Graphic file (type bmp)
 <images/logo/mysql.png>
 
 
-[28]
+[29]
 File: images/pipeline.png Graphic file (type bmp)
 <images/pipeline.png>
 
-
-[29]
 
 [30]
 
 [31]
 
 [32]
+
+[33]
 File: images/interface/archgene.png Graphic file (type bmp)
 <images/interface/archgene.png>
 
 
-[33
+[34
 
 ]
 File: images/interface/archback.png Graphic file (type bmp)
 <images/interface/archback.png>
 
 
-[34]
+[35]
 File: images/interface/archifront.png Graphic file (type bmp)
 <images/interface/archifront.png>
 File: images/interface/archiml.png Graphic file (type bmp)
 <images/interface/archiml.png>
 
 
-[35]
-File: images/interface/accueil.png Graphic file (type bmp)
-<images/interface/accueil.png>
-
-Overfull \hbox (63.73389pt too wide) in paragraph at lines 1112--1113
- [][] 
- []
-
-
-
 [36]
+File: images/interface/accueil2.jpeg Graphic file (type bmp)
+<images/interface/accueil2.jpeg>
+
+
+[37]
 File: images/interface/info.png Graphic file (type bmp)
 <images/interface/info.png>
 
@@ -1280,7 +1278,7 @@ Overfull \hbox (68.28383pt too wide) in paragraph at lines 1135--1136
 
 
 
-[37]
+[38]
 File: images/interface/resultat.png Graphic file (type bmp)
 <images/interface/resultat.png>
 
@@ -1290,36 +1288,62 @@ Overfull \hbox (68.28383pt too wide) in paragraph at lines 1146--1147
 
 
 
-[38]
+[39]
 File: images/interface/dashboard.png Graphic file (type bmp)
 <images/interface/dashboard.png>
+
+
+LaTeX Warning: Reference `fig:dashboard d’analyse' on page 40 undefined on inpu
+t line 1163.
+
 File: images/interface/historique.png Graphic file (type bmp)
 <images/interface/historique.png>
 
-
-[39]
 
 [40]
 
 [41]
 
-[42
+[42]
+
+[43
+
+]
+
+[44
+
+
+]
+LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
+(Font)              scaled to size 10.94824pt on input line 1238.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `Consolas' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+[45
+
 
 ] (main.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B7B8516BF2A8B562B0553D94EC101348;9824.
+(rerunfilecheck)             Checksum: F7A3CF13FDEA5EB7CF141C4D94228948;9540.
  ) 
 Here is how much of TeX's memory you used:
- 28361 strings out of 403250
- 568526 string characters out of 5461509
- 1026711 words of memory out of 5000000
- 56357 multiletter control sequences out of 15000+600000
- 632824 words of font info for 99 fonts, out of 8000000 for 9000
+ 28380 strings out of 403250
+ 568777 string characters out of 5461509
+ 1026927 words of memory out of 5000000
+ 56375 multiletter control sequences out of 15000+600000
+ 632832 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  84i,12n,113p,1130b,641s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (43 pages).
+Output written on main.pdf (46 pages).
