@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.25)  23 DEC 2025 10:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.11.25)  23 DEC 2025 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -935,7 +935,7 @@ File: images/logo/mysql.png Graphic file (type bmp)
 File: images/pipeline.png Graphic file (type bmp)
 <images/pipeline.png>
  [30] [31]
-Overfull \hbox (8.5855pt too wide) in paragraph at lines 969--972
+Overfull \hbox (8.5855pt too wide) in paragraph at lines 967--970
 []\TU/TimesNewRoman(0)/m/n/12 Un avantage majeur de Random Forest réside dans sa capacité à limiter le sur-apprentissage
  []
 
@@ -972,7 +972,7 @@ File: images/interface/accueil.png Graphic file (type bmp)
 File: images/interface/info.png Graphic file (type bmp)
 <images/interface/info.png>
 
-Overfull \hbox (63.73389pt too wide) in paragraph at lines 1191--1192
+Overfull \hbox (63.73389pt too wide) in paragraph at lines 1189--1190
  [][] 
  []
 
@@ -993,7 +993,7 @@ File: images/interface/historique.png Graphic file (type bmp)
 
 ]
 LaTeX Font Info:    Font shape `TU/Consolas(0)/m/n' will be
-(Font)              scaled to size 10.94824pt on input line 1304.
+(Font)              scaled to size 10.94824pt on input line 1302.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `Consolas' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
@@ -1018,4 +1018,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  84i,12n,113p,1036b,641s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (46 pages, 668328 bytes).
+Output written on main.xdv (46 pages, 666308 bytes).

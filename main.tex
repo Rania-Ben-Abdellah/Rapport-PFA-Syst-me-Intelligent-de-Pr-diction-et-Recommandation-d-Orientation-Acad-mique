@@ -283,7 +283,7 @@ Cette problématique met en évidence plusieurs limites observées dans les syst
 
 \begin{itemize}
     \item Absence d’un outil automatisé et objectif d’aide à la décision.
-    \item Manque de prise en compte des compétences non scolaires (stress, communication, créativité, motivation, etc.).
+    \item Manque de prise en compte des compétences non scolaires ( communication, créativité, motivation, etc.).
     \item Difficulté pour les étudiants à interpréter leurs performances ou à identifier clairement leurs points forts.
     \item Charge importante pour les conseillers d’orientation qui doivent analyser de grands volumes d’informations hétérogènes.
 \end{itemize}
@@ -896,9 +896,8 @@ Cette première étape consiste à rassembler les informations nécessaires à l
 
 \begin{itemize}
     \item[$\rightarrow$] les notes des étudiants ;
-    \item[$\rightarrow$] les compétences comportementales ;
-    \item[$\rightarrow$] les centres d’intérêt ;
-    \item[$\rightarrow$] les informations socio-éducatives.
+    \item[$\rightarrow$] les compétences comportementales .
+  
 \end{itemize}
 
 Le dataset est ensuite nettoyé pour éliminer les incohérences, doublons ou valeurs manquantes afin d’assurer une base fiable pour l’apprentissage.
@@ -929,8 +928,7 @@ Lors de cette étape, plusieurs modèles sont testés afin d’évaluer leurs pe
 Le système :
 
 \begin{itemize}
-    \item[$\rightarrow$] entraîne différents algorithmes (Random Forest, SVM, MLP, etc.) ;
-    \item[$\rightarrow$] compare leurs métriques (accuracy, F1-score, etc.) ;
+    
     \item[$\rightarrow$] sélectionne le modèle le plus performant ;
     \item[$\rightarrow$] sauvegarde la version optimale pour les prédictions futures.
 \end{itemize}
@@ -1046,7 +1044,7 @@ En complément, les outils suivants ont été utilisés :
 Le projet \textit{Orientation-IA} est organisé selon une structure modulaire visant à séparer clairement les différentes responsabilités du système. 
 Cette organisation facilite la compréhension du code, la maintenance, l’évolutivité et le travail collaboratif.
 
-L’arborescence globale du projet est présentée à la Figure~5.1 et repose sur une séparation logique entre l’environnement de développement, le backend, le frontend, le module d’apprentissage automatique et les ressources associées.
+L’arborescence globale du projet est présentée à la Figure~5.4 et repose sur une séparation logique entre l’environnement de développement, le backend, le frontend, le module d’apprentissage automatique et les ressources associées.
 
 % ===== Image : Architecture / Arborescence globale (Figure 5.1) =====
 \begin{figure}[h!]
