@@ -973,6 +973,44 @@ Ce chapitre présente la réalisation et l’implémentation du système d’ori
 Les écrans de l’application sont également présentés afin d’illustrer le parcours utilisateur et les interactions entre les différentes couches du système.
 % 5.1 Organisation générale du projet
 % ============================
+\section{Environnement et outils de développement}
+
+Le développement du système \textit{Orientation-IA} a été réalisé à l’aide de plusieurs outils logiciels permettant une implémentation efficace, collaborative et maintenable.
+
+L’éditeur de code principal utilisé est \textbf{Visual Studio Code (VS Code)}, un environnement de développement léger et extensible, particulièrement adapté aux projets Python et aux applications orientées Data Science. Il a été utilisé pour le développement du backend FastAPI, du frontend Streamlit ainsi que pour la gestion des scripts liés au pipeline d’apprentissage automatique.
+\begin{figure}[h!]
+    \centering
+    % Remplace par ton image globale (arborescence/architecture du projet)
+    \includegraphics[width=0.3\textwidth]{images/logo/vs.png}
+    \caption{Logo Visual Studio Code}
+    \label{fig:vscode-logo}
+\end{figure}
+VS Code offre plusieurs avantages :
+\begin{itemize}
+    \item une prise en charge native du langage Python ;
+    \item une intégration efficace avec les environnements virtuels ;
+    \item des extensions dédiées au développement IA (linting, debugging, gestion des dépendances) ;
+    \item une meilleure organisation et lisibilité du code source.
+\end{itemize}
+En complément, les outils suivants ont été utilisés :
+\begin{itemize}
+    \item \textbf{Git} pour la gestion de versions ;
+    \begin{figure}[h!]
+    \centering
+    % Remplace par ton image globale (arborescence/architecture du projet)
+    \includegraphics[width=0.2\textwidth]{images/logo/git.jpeg}
+    \caption{Logo Git}
+    \label{fig:git-logo}
+    \end{figure}
+    \item \textbf{Jira} pour le suivi Agile des sprints ;
+    \begin{figure}[h!]
+    \centering
+    % Remplace par ton image globale (arborescence/architecture du projet)
+    \includegraphics[width=0.2\textwidth]{images/logo/jira.jpeg}
+    \caption{Logo Jira}
+    \label{fig:jira-logo}
+\end{figure}
+\end{itemize}
 
 \section{Organisation générale du projet}
 
@@ -1109,7 +1147,7 @@ Elle constitue une base solide pour l’implémentation détaillée des fonction
 \begin{figure}[htbp]
     \centering
     % 🔽 Remplace le nom du fichier par le tien si nécessaire
-    \includegraphics[width=1\textwidth]{images/interface/accueil2.jpeg}
+    \includegraphics[width=1\textwidth]{images/interface/accueil.png}
     \caption{Interface principale de saisie des informations étudiantes}
     \label{fig:interface-principale}
 \end{figure}
@@ -1132,18 +1170,18 @@ L’interface est conçue de manière simple et intuitive afin de faciliter la s
 \begin{figure}[htbp]
     \centering
     % 🔽 Image de la saisie des notes et scores comportementaux
-    \includegraphics[width=1.15\textwidth]{images/interface/notes.png}
+    \includegraphics[width=0.95\textwidth]{images/interface/notes.png}
     \caption{Saisie des notes scolaires et des scores comportementaux}
     \label{fig:saisie-notes-scores}
 \end{figure}
 La Figure~\ref{fig:saisie-notes-scores} présente l’interface de saisie des performances académiques et des scores comportementaux de l’étudiant.
 Elle permet de renseigner les notes par matière, avec un calcul automatique de la moyenne générale, ainsi que des scores cognitifs via des curseurs interactifs.
 Ces données constituent les principales variables d’entrée du pipeline d’apprentissage automatique pour l’évaluation du profil académique et cognitif.
-
+\newpage
 \begin{figure}[htbp]
     \centering
     % 🔽 Image de l'affichage des résultats et recommandations
-    \includegraphics[width=1.15\textwidth]{images/interface/resultat.png}
+    \includegraphics[width=0.95\textwidth]{images/interface/resultat.png}
     \caption{Affichage des résultats et recommandations d’orientation}
     \label{fig:resultats-orientation}
 \end{figure}
@@ -1151,16 +1189,15 @@ La Figure~\ref{fig:resultats-orientation} illustre l’affichage des résultats 
 Elle présente la filière recommandée, un classement des meilleures propositions ainsi qu’une option de téléchargement du rapport PDF.
 Cette interface constitue l’aboutissement du processus de prédiction en fournissant une recommandation claire et personnalisée.
 
-\newpage
 \begin{figure}[htbp]
     \centering
     % 🔽 Image du dashboard du conseiller d’orientation
-    \includegraphics[width=0.95\textwidth]{images/interface/dashboard.png}
+    \includegraphics[width=0.95\textwidth]{images/interface/accueil2.jpeg}
     \caption{Dashboard d’analyse}
     \label{fig:dashboard-analyse}
 
 \end{figure}
-La Figure~\ref{fig:dashboard d’analyse} illustre le tableau de bord d'analyse.
+La Figure~\ref{fig:dashboard-analyse} illustre le tableau de bord d'analyse.
 Il présente une vue synthétique des recommandations générées, accompagnée d’indicateurs globaux et de visualisations graphiques.
 Ces éléments permettent d’analyser les tendances d’orientation selon différents critères et de mieux comprendre les profils des étudiants.
 
@@ -1178,7 +1215,7 @@ Cette interface facilite l’analyse et l’exploitation des recommandations pas
 Ce chapitre a présenté la réalisation et l’implémentation du système d’orientation académique \textit{Orientation-IA}. Il a permis de décrire l’organisation générale du projet, la structuration des modules ainsi que la mise en œuvre concrète des composants frontend, backend et du module d’Intelligence Artificielle.Les principales interfaces de l’application ont été introduites afin d’illustrer le parcours utilisateur, depuis la saisie des informations étudiantes jusqu’à l’affichage des résultats et des recommandations d’orientation. Le tableau de bord du conseiller et la page d’historique viennent compléter le système en offrant des fonctionnalités de suivi et d’analyse des données.
 
 Cette phase de réalisation confirme la cohérence des choix de conception et d’architecture adoptés. Le chapitre suivant sera consacré à l’évaluation du modèle et à l’analyse des résultats, afin d’apprécier la performance et la pertinence des recommandations générées.
-\ChapterCover{Conclusion Générale}
+\chapter*{Conclusion Générale}
 \vspace*{0.5cm}
 Ce projet a porté sur la conception et la réalisation d’un système intelligent d’aide à l’orientation académique basé sur les techniques d’Intelligence Artificielle et d’apprentissage automatique. Face aux difficultés rencontrées par les étudiants dans le choix de leur filière, l’objectif principal était de proposer une solution capable de fournir des recommandations personnalisées, fiables et exploitables, en tenant compte des performances scolaires, des compétences comportementales et des informations personnelles des étudiants.
 
