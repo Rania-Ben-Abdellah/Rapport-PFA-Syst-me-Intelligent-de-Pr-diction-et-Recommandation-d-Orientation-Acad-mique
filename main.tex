@@ -953,6 +953,35 @@ Le système :
 \end{itemize}
 
 Cette étape constitue l’aboutissement du pipeline, produisant une recommandation personnalisée, fiable et compréhensible pour l’étudiant ou le conseiller.
+ % ---------------------------------
+% 3.1 Random Forest
+% ---------------------------------
+\subsection{Modèle Random Forest}
+
+Le modèle \textbf{Random Forest} est un algorithme d’apprentissage supervisé basé sur le principe des méthodes ensemblistes (\textit{ensemble learning}). 
+Il repose sur la construction de plusieurs arbres de décision entraînés sur différentes sous-parties du dataset, puis sur l’agrégation de leurs prédictions 
+afin d’obtenir un résultat final plus robuste et plus stable.
+
+Dans le cadre du projet \textit{Orientation-IA}, Random Forest a été utilisé comme l’un des modèles principaux du pipeline d’apprentissage automatique. 
+Cet algorithme est particulièrement adapté à la problématique de l’orientation académique, car il permet de traiter efficacement des données hétérogènes, 
+combinant des variables numériques (notes scolaires, scores cognitifs) et des variables catégorielles (type de baccalauréat, centres d’intérêt).
+
+Un avantage majeur de Random Forest réside dans sa capacité à limiter le sur-apprentissage (\textit{overfitting}) par rapport à un arbre de décision unique, 
+tout en conservant de bonnes performances prédictives. De plus, il offre la possibilité d’analyser l’importance relative des variables, contribuant ainsi 
+à une meilleure interprétabilité des recommandations générées.
+
+Les performances du modèle Random Forest ont été évaluées à l’aide de métriques classiques telles que l’accuracy et le F1-score, puis comparées à celles 
+d’autres algorithmes testés dans le pipeline. Les résultats obtenus ont montré un bon compromis entre précision, stabilité et explicabilité, justifiant 
+ainsi son intégration dans le système de recommandation d’orientation académique.
+
+Dans le contexte du pipeline d’apprentissage automatique mis en place, le modèle Random Forest a été retenu car il offre un compromis optimal entre performance prédictive, robustesse face aux données hétérogènes et capacité d’explication des résultats, répondant ainsi aux exigences de fiabilité et d’interprétabilité du système Orientation-IA.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=1.4cm]{images/logo/Random.png}
+    \hspace{0.7cm}
+    \caption{Logos: Random Forest}
+\end{figure}
 
 \section*{Conclusion du chapitre}
 

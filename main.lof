@@ -10,16 +10,17 @@
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Logos: FastAPI — Python}}{28}{figure.caption.42}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Logo:MySQL}}{29}{figure.caption.44}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Pipeline global du processus d’apprentissage automatique}}{31}{figure.caption.46}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Logo Visual Studio Code}}{34}{figure.caption.50}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Logo Git}}{34}{figure.caption.51}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Logo Jira}}{35}{figure.caption.52}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Vue globale de l’arborescence du projet Orientation-IA}}{35}{figure.caption.53}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Organisation interne du backend FastAPI}}{36}{figure.caption.54}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Organisation du frontend Streamlit}}{37}{figure.caption.55}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Organisation du module ia et des modèles}}{37}{figure.caption.56}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Interface principale de saisie des informations étudiantes}}{38}{figure.caption.57}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Saisie des informations personnelles de l’étudiant}}{39}{figure.caption.58}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Saisie des notes scolaires et des scores comportementaux}}{39}{figure.caption.59}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Affichage des résultats et recommandations d’orientation}}{40}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Dashboard d’analyse}}{40}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Historique des recommandations}}{41}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Logos: Random Forest}}{33}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Logo Visual Studio Code}}{35}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Logo Git}}{35}{figure.caption.52}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Logo Jira}}{36}{figure.caption.53}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Vue globale de l’arborescence du projet Orientation-IA}}{36}{figure.caption.54}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Organisation interne du backend FastAPI}}{37}{figure.caption.55}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Organisation du frontend Streamlit}}{38}{figure.caption.56}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Organisation du module ia et des modèles}}{38}{figure.caption.57}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Interface principale de saisie des informations étudiantes}}{39}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Saisie des informations personnelles de l’étudiant}}{40}{figure.caption.59}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Saisie des notes scolaires et des scores comportementaux}}{40}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Affichage des résultats et recommandations d’orientation}}{41}{figure.caption.61}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Dashboard d’analyse}}{41}{figure.caption.62}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Historique des recommandations}}{42}{figure.caption.63}%
